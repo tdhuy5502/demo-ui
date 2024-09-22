@@ -1,12 +1,12 @@
 <header>
         <div class="container py-3">
             <div class="row align-items-center">
-                <!-- Logo -->
-                <div class="col-6 col-sm-2">
+                
+                <div class="col-6 col-sm-1">
                     <span class="logo">Finsweet</span>
                 </div>
-                <!-- Navigation Menu -->
-                <div class="col-6 col-sm-10">
+        
+                <div class="col-7 col-sm-11">
                     <nav class="nav justify-content-end">
                         <a class="nav-link home-link" href="#">Home</a>
                         <a class="nav-link nav-items" href="#">About us</a>
@@ -52,3 +52,34 @@
 </header>
 
 
+<!-- <header>
+        <nav class="navbar">
+            <div class="logo">Finsweet</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">What We Do</a></li>
+                <li><a href="#">Media</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" class="donate-btn">Donate</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Save the environment today for a better tomorrow</h1>
+            <div class="hero-buttons">
+                <button class="what-we-do-btn">What we do</button>
+                <div class="play-video">
+                    <span class="play-icon"></span> Play Video
+                </div>
+            </div>
+            <div class="hero-stats">
+                <p>23,800 trees planted</p>
+                <span>|</span>
+                <p>5,840 donations collected</p>
+            </div>
+        </div>
+    </section> -->
