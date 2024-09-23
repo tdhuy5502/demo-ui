@@ -15,5 +15,6 @@
     <title>Document</title>
 </head>
 <body>
+    @include('footer')
 </body>
 </html>

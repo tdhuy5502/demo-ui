@@ -52,6 +52,10 @@ h6 {
     background-color: #000000;
 }
 
+.bt-page {
+    height: 100%;
+}
+
 @media (max-width: 768px) {
     .card {
         margin-bottom: 20px;

@@ -11,10 +11,10 @@ body {
 
 .about-us {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 50px;
     background-color: #f8f9fa;
+    height: 100%;
 }
 
 .container {
@@ -60,7 +60,6 @@ body {
 }
 
 .image-content {
-    flex: 1;
     position: relative;
 }
 
