@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UIController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('header');
+});
+
+
+Route::controller(UIController::class)
+    ->prefix('/home')
+    ->as('home.')
+    ->group(function(){
+    Route::get('whatwedo','whatwedo')->name('whatwedo');
+    Route::get('project','project')->name('project');
+    Route::get('about_us','aboutUs')->name('about_us');
+    Route::get('contact','contact')->name('contact');
 });

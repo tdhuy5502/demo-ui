@@ -1,4 +1,7 @@
-
+@extends('index')
+@section('customizeCSS')
+    <link rel="stylesheet" href="{{ asset('assets/css/content.css') }}">
+@endsection
 <section class="about-us">
     <div class="container">
         <div class="text-content">
@@ -28,60 +31,3 @@
     </div>
 </section>
 
-
-
-<section class="what-we-do">
-        <div class="container">
-            <div class="content">
-                <h3>What we do</h3>
-                <h1>We care for earth, care for the coming birth</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-                
-                <div class="activities">
-                    <div class="activity">
-                        <div class="icon">
-                            <img src="city-icon.png" alt="City Icon"> <!-- Replace with your image -->
-                        </div>
-                        <div class="activity-details">
-                            <h4>Build Healthy Cities</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="activity">
-                        <div class="icon">
-                            <img src="tree-icon.png" alt="Tree Icon"> <!-- Replace with your image -->
-                        </div>
-                        <div class="activity-details">
-                            <h4>Tree Plantation</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-                        </div>
-                    </div>
-
-                    <div class="activity">
-                        <div class="icon">
-                            <img src="water-icon.png" alt="Water Icon"> <!-- Replace with your image -->
-                        </div>
-                        <div class="activity-details">
-                            <h4>Protect Land and Water</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-                        </div>
-                    </div>
-
-                    <div class="activity">
-                        <div class="icon">
-                            <img src="animal-icon.png" alt="Animal Icon"> <!-- Replace with your image -->
-                        </div>
-                        <div class="activity-details">
-                            <h4>Animal Safety</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="image">
-                <img src="man-with-dog.jpg" alt="Man with Dog"> <!-- Replace with your image -->
-            </div>
-        </div>
-    </section>
