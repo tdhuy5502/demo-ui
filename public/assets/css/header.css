@@ -1,32 +1,32 @@
-.logo {
+#home-header .logo {
     font-size: 1.5rem;
     font-weight: bold;
 }
 
-.nav-link {
+#home-header .nav-link {
     color: #000;
     margin-right: 15px;
     text-decoration: none;
 }
 
-.nav-link:hover {
+#home-header .nav-link:hover {
     color: #555;
 }
 
-.donate-btn {
+#home-header .donate-btn {
     padding-left: 25px;
     padding-right: 25px;
     margin-left: 10px;
 }
 
 
-.background img {
+#home-header .background img {
     width: 100%;
     height: auto;
     object-fit: cover;
 }
 
-.home-link{
+#home-header .home-link{
     color: #000;
     font-weight: 600;
     margin-right: 15px;
@@ -34,18 +34,18 @@
 }
 
 @media (max-width: 576px) {
-    .nav-link {
+    #home-header .nav-link {
         font-size: 0.9rem;
         margin-right: 10px;
     }
 
-    .donate-btn {
+    #home-header .donate-btn {
         padding: 6px 16px;
         font-size: 0.85rem;
     }
 }
 
-.header-text {
+#home-header .header-text {
     color: #FFFFFF;
     font-weight: 900;
     font-family: 'Roboto';
@@ -55,7 +55,7 @@
     margin-left: 130px;
 }
 
-.btn-wwd {
+#home-header .btn-wwd {
     background-color: #ffffff;
     color: #000000;
     padding: 10px 20px;
@@ -67,27 +67,27 @@
     font-size: 12px;
 }
 
-.play-text {
+#home-header .play-text {
     text-align: center;
     text-decoration: none;
     color: #fff;
     font-size: 12px;
 }
 
-.play-text i {
+#home-header .play-text i {
     margin-right: 7px;
 }
 
-.row {
+#home-header .row {
     display: flex;
     align-items: center;
 }
 
-.action-row {
+#home-header .action-row {
     margin-top: 45px;
 }
 
-.statistics-container {
+#home-header .statistics-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -97,20 +97,20 @@
     padding: 20px 0; 
 }
 
-.statistics-item {
+#home-header .statistics-item {
     flex: 1;
     text-align: center; 
 }
 
-.left {
+#home-header .left {
     text-align: left;
 }
 
-.right {
+#home-header .right {
     text-align: right; 
 }
 
-.separator {
+#home-header .separator {
     width: 2px; 
     background-color: #fff; 
     height: 1px; 

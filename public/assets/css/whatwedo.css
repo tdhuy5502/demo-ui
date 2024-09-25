@@ -1,25 +1,25 @@
-* {
+#whatwedo  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+#whatwedo body {
     font-family: Arial, sans-serif;
     background-color: #f5f8f6;
 }
 
-.container {
+#whatwedo .container {
     display: flex;
     justify-content: space-between;
     padding: 40px 80px;
 }
 
-.content {
+#whatwedo .content {
     max-width: 50%;
 }
 
-h3 {
+#whatwedo h3 {
     font-size: 20px;
     font-weight: 400;
     letter-spacing: 1.5px;
@@ -28,48 +28,48 @@ h3 {
     padding-left: 10px;
 }
 
-h1 {
+#whatwedo h1 {
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 20px;
 }
 
-p {
+#whatwedo p {
     font-size: 16px;
     margin-bottom: 30px;
     color: #666;
 }
 
-.activities {
+#whatwedo .activities {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.activity {
+#whatwedo .activity {
     display: flex;
     gap: 15px;
     align-items: flex-start;
 }
 
-.icon {
+#whatwedo .icon {
     background-color: #e9f5ee;
     padding: 10px;
     border-radius: 8px;
 }
 
-.activity-details h4 {
+#whatwedo .activity-details h4 {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 5px;
 }
 
-.activity-details p {
+#whatwedo .activity-details p {
     font-size: 14px;
     color: #666;
 }
 
-.image img {
+#whatwedo .image img {
     width: 500px;
     height: auto;
     border-radius: 12px;
@@ -77,24 +77,29 @@ p {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    .container {
+    #whatwedo .container {
         flex-direction: column;
         align-items: center;
         padding: 20px;
     }
 
-    .content {
+    #whatwedo .content {
         max-width: 100%;
         text-align: center;
     }
 
-    .image img {
+    #whatwedo .image img {
         width: 100%;
         margin-top: 20px;
     }
 }
 
-.what-we-do{
+#whatwedo .what-we-do{
     background-color: #EFF7F2;
     height: 100%;
+}
+
+.whatwedo {
+    margin: 0;
+    padding: 0;
 }
