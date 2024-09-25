@@ -1,15 +1,19 @@
-* {
+#home-content .view-content{
+    padding: 5rem;
+}
+
+#home-content * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    margin: 5;
+    padding: 5;
     font-family: Arial, sans-serif;
 }
 
-body {
+#home-content body {
     line-height: 1.6;
 }
 
-.about-us {
+#home-content .about-us {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,7 +21,7 @@ body {
     height: 100%;
 }
 
-.container {
+#home-content .container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -26,30 +30,30 @@ body {
     gap: 20px;
 }
 
-.text-content {
+#home-content .text-content {
     flex: 1;
 }
 
-.text-content h4 {
+#home-content .text-content h4 {
     font-size: 18px;
     color: #555;
     margin-bottom: 10px;
 }
 
-.text-content h1 {
+#home-content .text-content h1 {
     font-size: 36px;
     color: #1a1a1a;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-.text-content p {
+#home-content .text-content p {
     font-size: 16px;
     color: #555;
     margin-bottom: 20px;
 }
 
-.learn-more-btn {
+#home-content .learn-more-btn {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
@@ -59,22 +63,22 @@ body {
     border-radius: 5px;
 }
 
-.image-content {
+#home-content .image-content {
     position: relative;
 }
 
-.image-wrapper {
+#home-content .image-wrapper {
     position: relative;
     width: 100%;
     height: auto;
 }
 
-.image-wrapper img {
+#home-content .image-wrapper img {
     width: 100%;
     border-radius: 8px;
 }
 
-.play-button {
+#home-content .play-button {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -88,7 +92,7 @@ body {
     align-items: center;
 }
 
-.play-button::after {
+#home-content .play-button::after {
     content: '';
     width: 0;
     height: 0;
@@ -97,39 +101,39 @@ body {
     border-bottom: 10px solid transparent;
 }
 
-.supporters {
+#home-content .supporters {
     text-align: center;
     padding: 50px 0;
 }
 
-.supporters h4 {
+#home-content .supporters h4 {
     font-size: 18px;
     color: #555;
     margin-bottom: 20px;
 }
 
-.supporter-logos {
+#home-content .supporter-logos {
     display: flex;
     justify-content: center;
     gap: 40px;
 }
 
-.supporter-logos img {
+#home-content .supporter-logos img {
     max-width: 100px;
     height: auto;
 }
 
 @media (max-width: 768px) {
-    .container {
+    #home-content .container {
         flex-direction: column;
         text-align: center;
     }
 
-    .image-content {
+    #home-content .image-content {
         margin-top: 30px;
     }
 
-    .supporter-logos {
+    #home-content .supporter-logos {
         flex-wrap: wrap;
     }
 }
