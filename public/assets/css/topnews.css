@@ -1,0 +1,154 @@
+.top-news-section {
+    font-family: Arial, sans-serif;
+    background-color: #EFF7F2;
+    margin: 0;
+    padding: 0;
+    max-height: 768px;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #EFF7F2;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.btn-donate {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    margin-top: 2px;
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+}
+
+.btn-donate:hover{
+    color: #ffffff;
+    background-color: #302e2e;
+}
+
+.nav-link {
+    color: #000;
+    margin-right: 2rem;
+}
+
+/* Main Section Styling */
+.top-news-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 50px 10%;
+}
+
+.news-content {
+    flex: 1;
+    background-color: #e9f6f1;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.news-content h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.news-content p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.news-content .btn-read-more {
+    background-color: #4CAF50;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.news-content .btn-read-more:hover {
+    background-color: #45a049;
+}
+
+.news-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.news-item {
+    display: flex;
+    gap: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.news-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.news-item h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.news-item p {
+    margin: 5px 0 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.card {
+    border: none;
+}
+
+.section-footer {
+    background-color: #111111;
+    color: white;
+    padding: 60px 0;
+}
+
+.footer-links a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.btn-seemore {
+    border: none;
+    background-color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0.8rem;
+}
+
+.btn-seemore:hover {
+    background-color: #000000;
+    color: #fff;
+}
+
+.event-section {
+    background-color: #BEF3C0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .top-news-section {
+        flex-direction: column;
+        padding: 20px;
+    }
+}

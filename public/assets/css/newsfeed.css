@@ -1,0 +1,107 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.hero h1 {
+    font-size: 56px;
+}
+
+.cool-text {
+    font-size: 48px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.nav-link {
+    color: #000;
+    margin-right: 2rem;
+}
+
+.btn-donate {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    margin-top: 2px;
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+}
+
+.btn-donate:hover{
+    color: #ffffff;
+    background-color: #302e2e;
+}
+
+.stat-section {
+    background-color: #EBF0F9;
+    border: none;
+    padding: 2rem;
+}
+
+.stats {
+    margin-left: 3.5rem;
+}
+
+.card-title, .card-text{
+    color: #ffffff;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-img-top{
+    filter: brightness(40%);
+}
+
+.card {
+    border: none;
+}
+
+.card-body {
+    padding: 2.5rem;
+}
+
+.btn-seemore {
+    border: none;
+    background-color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0.8rem;
+}
+
+.btn-seemore:hover {
+    background-color: #000000;
+    color: #fff;
+}
+
+.section-volunteer {
+    padding: 80px 0;
+    max-width: 1280px;
+    margin: 0 auto; /* Căn giữa section */
+}
+
+.volunteer-img {
+    filter: brightness(50%);
+    border-radius: 12px;
+    border: none; 
+}
+
+.text-volunteer {
+    color: white;
+}
+
+.section-footer {
+    background-color: #111111;
+    color: white;
+    padding: 60px 0;
+    margin-top: 70px;
+}
+
+.footer-links a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+}
