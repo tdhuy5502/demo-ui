@@ -7,6 +7,7 @@
     <title>Our Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/css/newsfeed.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/footer.css')}}">
     <style>
         
     </style>
@@ -14,26 +15,7 @@
 <body>
 
 <!-- Navbar -->
-<section class="navbar-section">  
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="#"><strong>Finsweet</strong></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">What We Do</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Media</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                    <li class="nav-item"><a class="btn btn-donate" href="#">Donate</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</section>
+@include('components.navbar')
 
 <section class="hero container text-center py-5 col-md-7 mt-5">
     <h6>21 DEC 2021</h6>
@@ -80,26 +62,7 @@
 </section>
 
 <!-- Footer -->
-<footer class="section-footer py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-            <h5 class="card-title">Finsweet</h5>
-            <ul class="list-unstyled footer-links">
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            </div>
-            <div class="col-md-6">
-            <h5 class="fw-bold">Subscribe to get latest updates</h5>
-            <form>
-                <input type="email" class="form-control" placeholder="Your email">
-                <button class="btn btn-seemore mt-3">Subscribe</button>
-            </form>
-            </div>
-        </div>
-    </div>
-</footer>
+ @include('components.footer')
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -1,0 +1,221 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.hero-section h1 {
+    font-size: 56px;
+}
+
+.hero-section {
+    border: none;
+    background-color: #EFF7F2;
+    height: 400px;
+    margin: 0;
+    padding-bottom: 4rem;
+}
+
+.cool-text {
+    font-size: 48px;
+}
+
+.navbar-section {
+    background-color: #EFF7F2;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.nav-link {
+    color: #000;
+    margin-right: 2rem;
+}
+
+.btn-donate {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    margin-top: 2px;
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+}
+
+.btn-donate:hover{
+    color: #ffffff;
+    background-color: #302e2e;
+}
+
+.stat-section {
+    background-color: #EBF0F9;
+    border: none;
+    padding: 2rem;
+}
+
+.stats {
+    margin-left: 3.5rem;
+}
+
+.card-title, .card-text{
+    color: #ffffff;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-img-top{
+    filter: brightness(40%);
+}
+
+.card {
+    border: none;
+}
+
+.card-body {
+    padding: 2.5rem;
+}
+
+.btn-seemore {
+    border: none;
+    background-color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0.8rem;
+}
+
+.btn-seemore:hover {
+    background-color: #000000;
+    color: #fff;
+}
+
+.section-volunteer {
+    padding: 80px 0;
+    max-width: 1280px;
+    margin: 0 auto; /* Căn giữa section */
+}
+
+.volunteer-img {
+    filter: brightness(50%);
+    border-radius: 12px;
+    border: none; 
+}
+
+.text-volunteer {
+    color: white;
+}
+
+.section-footer {
+    background-color: #111111;
+    color: white;
+    padding: 60px 0;
+    margin-top: 70px;
+}
+
+.footer-links a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.heading {
+    display: flex;
+}
+
+.event-card {
+    display: flex;
+    align-items: center;
+    background-color: #c6f6d5;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+}
+
+.event-card:hover {
+    background-color: #a3e6b2;
+}
+
+.event-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0f7de;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 15px;
+    text-align: center;
+}
+
+.event-date .day {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2f855a;
+}
+
+.event-date .month {
+    font-size: 14px;
+    color: #2f855a;
+    text-transform: uppercase;
+}
+
+.event-details {
+    flex: 1;
+}
+
+.event-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #4a5568;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.event-details h3 {
+    font-size: 16px;
+    margin: 0;
+    color: #2d3748;
+    font-weight: bold;
+}
+
+.event-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-button {
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.arrow-button:hover {
+    background-color: #edf2f7;
+}
+
+@media (max-width: 480px) {
+.event-card {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.event-date {
+    margin-bottom: 10px;
+    margin-right: 0;
+}
+
+.arrow-button {
+    width: 30px;
+    height: 30px;
+}
+} 

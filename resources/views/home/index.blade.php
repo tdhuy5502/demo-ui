@@ -6,28 +6,11 @@
     <title>Environmental Organization</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/css/home.css')}}">
-    <link rel="stylesheet" href="styles.css"> <!-- External CSS file -->
+    <link rel="stylesheet" href="{{asset('assets/css/footer.css')}}">
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-0 p-3">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Finsweet</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('about-us') }}">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/">What We Do</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                    <li class="nav-item"><a class="btn btn-donate" href="#">Donate</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @include('components.navbar')
 
     <!-- Hero Section -->
     <section class="hero-section position-relative text-white align-items-start">
@@ -251,26 +234,7 @@
           </section>
     
       <!-- Footer -->
-      <footer class="section-footer py-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <h5 class="card-title">Finsweet</h5>
-              <ul class="list-unstyled footer-links">
-                <li><a href="#">About us</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </div>
-            <div class="col-md-6">
-              <h5>Subscribe to get latest updates</h5>
-              <form>
-                <input type="email" class="form-control" placeholder="Your email">
-                <button class="btn btn-seemore mt-3">Subscribe</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </footer>
+      @include('components.footer')
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
