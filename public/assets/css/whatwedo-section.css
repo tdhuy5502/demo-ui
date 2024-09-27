@@ -119,6 +119,7 @@ body {
   .footer-links a {
     color: white;
     margin-right: 15px;
+    text-decoration: none;
   }
   .footer-subscribe input[type="email"] {
     background-color: #f6f9fc;

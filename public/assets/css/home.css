@@ -1,0 +1,145 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.hero-section {
+    position: relative;
+    height: 735px;
+    background-color: #000;
+}
+
+.hero-text {
+    font-weight: bold;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.hero-section img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(50%);
+}
+
+.hero-section .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.about-us {
+    background-color: #f8f9fa;
+}
+
+.project-title {
+    position: absolute;
+    top: 50%; 
+    left: 50%; /* Đặt giữa theo chiều ngang */
+    transform: translate(-80%, -90%); /* Căn giữa hoàn toàn */
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+.card-title, .card-text{
+    color: #ffffff;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.btn-seemore {
+    border: none;
+    background-color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0.8rem;
+}
+
+.btn-seemore:hover {
+    background-color: #000000;
+    color: #fff;
+}
+
+.card-img-top{
+    filter: brightness(40%);
+}
+
+.card {
+    border: none;
+}
+
+.card-body {
+    padding: 2.5rem;
+}
+
+.footer {
+    background-color: #333;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.nav-link {
+    color: #000;
+    margin-right: 2rem;
+}
+
+.btn-donate {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    margin-top: 2px;
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+}
+
+.btn-donate:hover{
+    color: #ffffff;
+    background-color: #302e2e;
+}
+
+.what-we-do {
+    background-color: #EFF7F2;
+}
+
+.section-volunteer {
+    padding: 80px 0;
+    max-width: 1280px;
+    margin: 0 auto; /* Căn giữa section */
+}
+
+.volunteer-img {
+    filter: brightness(50%);
+    border-radius: 12px;
+    border: none; 
+}
+
+.text-volunteer {
+    color: white;
+}
+
+.event-section {
+    background-color: #BEF3C0;
+}
+
+.section-footer {
+    background-color: #111111;
+    color: white;
+    padding: 60px 0;
+}
+
+.footer-links a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+}

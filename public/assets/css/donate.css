@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.navbar {
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.nav-link {
+    color: #000;
+    margin-right: 2rem;
+}
+
+.btn-donate {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    margin-top: 2px;
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+}
+
+.btn-donate:hover{
+    color: #ffffff;
+    background-color: #302e2e;
+}
+
+.navbar-section {
+    background-color: #EFF7F2;
+}
+
+.donation-section {
+    background-color: #EFF7F2;
+}
+
+.donation-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.contribute-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.use-donation-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.cta-section {
+    background: #333;
+    background-size: cover;
+    background-position: center;
+}
+
+.footer h5 {
+    font-weight: bold;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.section-volunteer {
+    padding: 80px 0;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.volunteer-img {
+    filter: brightness(50%);
+    border-radius: 12px;
+    border: none; 
+}
+
+.text-volunteer {
+    color: white;
+}
+
+.section-footer {
+    margin-top: 100px;
+    background-color: #111111;
+    color: white;
+    padding: 60px 0;
+}
+
+.footer-links a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.btn-seemore {
+    border: none;
+    background-color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+}

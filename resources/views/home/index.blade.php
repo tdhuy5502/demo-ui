@@ -1,18 +1,279 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <div class="container">
-      <a class="navbar-brand" href="#">Finsweet</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">What We Do</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Media</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-          <li class="nav-item"><a class="nav-link btn btn-dark text-white pl-5 pr-5" href="#">Donate</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Organization</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('assets/css/home.css')}}">
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS file -->
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-0 p-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Finsweet</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('about-us') }}">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">What We Do</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="btn btn-donate" href="#">Donate</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section position-relative text-white align-items-start">
+        <img src="{{asset('assets/BG Image.png')}}" class="img-fluid w-100" alt="Hero Image" style="object-fit: cover;">
+        <div class="container">
+            <h1 class="col-5 hero-text">Save the environment today for a better tomorrow</h1>
+            <a href="#" class="btn btn-seemore mt-3">Play Video</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mt-5">
+                    <h6 class="fw-bold">KNOW ABOUT US</h6>
+                    <h2 class="fw-bold">We help nature smile and survive everywhere</h2>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent volutpat nisl quis mauris volutpat venenatis.</p>
+                    <a href="#" class="btn btn-success">Learn More</a>
+                </div>
+                <div class="col-md-6">
+                    <img src="{{asset('assets/BG.png')}}" class="img-fluid" alt="Hero Image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supporters Section -->
+    <section class="supporters py-5">
+        <div class="container">
+            <h5 class="">OUR SUPPORTERS</h5>
+            <div class="row justify-content-center mt-3">
+                <div class="col-2"><img src="{{asset('assets/Logo1.svg')}}" alt="Supporter"></div>
+                <div class="col-2"><img src="{{asset('assets/Logo2.svg')}}" alt="Supporter"></div>
+                <div class="col-2"><img src="{{asset('assets/Logo3.svg')}}" alt="Supporter"></div>
+                <div class="col-2"><img src="{{asset('assets/Logo4.svg')}}" alt="Supporter"></div>
+                <div class="col-2"><img src="{{asset('assets/Logo5.svg')}}" alt="Supporter"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="what-we-do py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="fw-bold fs-6">WHAT WE DO</h5>
+                    <h2 class="fw-bold">We care for earth, care for the coming birth</h2>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+                    <ul class="list-unstyled col-lg-8">
+                        <li>
+                            <div class="d-flex align-items-center">
+                                <img src="{{asset('assets/Icon_health.png')}}" style="width: 28px; height: 28px;" alt="">
+                                <div class="mt-2">
+                                    <h6 class="fw-bold fs-5">Build Healthy Cities</h6>
+                                </div>
+                            </div>
+                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-center">
+                                <img src="{{asset('assets/Icon_tree_plant.png')}}" alt="">
+                                <div class="mt-2">
+                                    <h6 class="fw-bold fs-5">Tree Plantation</h6>
+                                </div>
+                            </div>
+                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-center">
+                                <img src="{{asset('assets/Icon_protect_land.png')}}" alt="">
+                                <div class="mt-2">
+                                    <h6 class="fw-bold fs-5">Protect Land and Water</h6>
+                                </div>
+                            </div>
+                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-center">
+                                <img src="{{asset('assets/Icon_animal.png')}}" alt="">
+                                <div class="mt-2">
+                                    <h6 class="fw-bold fs-5">Animal Safety & Rescue</h6>
+                                </div>
+                            </div>
+                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <img src="{{asset('assets/whatwedo_img.png')}}" class="img-fluid" alt="Activity">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects py-5">
+        <div class="container">
+            <h5>PROJECTS WE HAS DONE</h5>
+              <h2 class="py-5">We are creating a sustainable society, for everyone.</h2>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card">
+                  <img src="{{ asset('assets/mission40K.png') }}" alt="Project Image" class="card-img-top">
+                  <div class="card-body card-img-overlay">
+                    <h5 class="card-title">Mission 40K: Tree plantation</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                    <a href="#" class="btn btn-seemore">See more</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <img src="{{ asset('assets/weekly_cleann.png') }}" alt="Project Image" class="card-img-top">
+                  <div class="card-body card-img-overlay">
+                    <h5 class="card-title">Weekly cleanliness program</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                    <a href="#" class="btn btn-seemore">See more</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card">
+                  <img src="{{ asset('assets/wild_safety.png') }}" alt="Project Image" class="card-img-top">
+                  <div class="card-body card-img-overlay">
+                    <h5 class="card-title">Wildlife safety program</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                    <a href="#" class="btn btn-seemore">See more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="section-volunteer py-5 text-center position-relative">
+        <img src="{{ asset('assets/cta_img.png') }}" class="volunteer-img img-fluid w-100 position-absolute top-0 start-0 h-100" alt="Volunteer Image" style="object-fit: cover; z-index: -1;">
+        <div class="container position-relative" style="z-index: 1;">
+            <div class="row justify-content-center">
+                <h2 class="text-volunteer col-lg-6">You can contribute to make the environment greener!</h2>
+            </div>
+            <div class="">
+                <a href="#" class="btn btn-success me-2">Join as a volunteer</a>
+                <a href="#" class="btn btn-seemore">Donate</a>
+            </div>
+        </div>
+    </section>
+    
+    
+      <!-- News Section -->
+      <section class="section-news py-5">
+        <div class="container">
+          <h2 class="fw-bold">Read Our News</h2>
+          <div class="row mt-5">
+            <div class="col-md-3">
+              <div class="card">
+                <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title-news">Don't destroy greenery</h5>
+                  <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                  <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title-news">Don't destroy greenery</h5>
+                    <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title-news">Don't destroy greenery</h5>
+                    <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="col-md-3">
+                <div class="card">
+                  <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title-news">Don't destroy greenery</h5>
+                    <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </section>
+    
+      <!-- Events Section -->
+        <section class="section-events py-5">
+            <div class="container text-center">
+              <h2 class="fw-bold">Our Events</h2>
+              <div class="row mt-4">
+                <div class="col-md-6">
+                  <div class="card event-section">
+                    <div class="card-body">
+                      <h3>23 Sep</h3>
+                      <h5>Say no to plastic usage</h5>
+                    </div>
+                  </div>
+                </div>
+                <!-- Sự kiện khác -->
+                <div class="col-md-6">
+                    <div class="card event-section">
+                      <div class="card-body">
+                        <h3>23 Sep</h3>
+                        <h5>Say no to plastic usage</h5>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </section>
+    
+      <!-- Footer -->
+      <footer class="section-footer py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h5 class="card-title">Finsweet</h5>
+              <ul class="list-unstyled footer-links">
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h5>Subscribe to get latest updates</h5>
+              <form>
+                <input type="email" class="form-control" placeholder="Your email">
+                <button class="btn btn-seemore mt-3">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

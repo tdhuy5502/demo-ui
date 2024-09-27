@@ -15,9 +15,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('whatwedo.index');
+    return view('home.index');
 });
 
+Route::get('/about-us', function () {
+    return view('about-us.index');
+})->name('about-us');
+
+Route::get('/topnews', function () {
+    return view('topnews.index');
+})->name('topnews');
+
+Route::get('/contact', function () {
+    return view('contact.index');
+})->name('contact');
+
+Route::get('/donate', function () {
+    return view('donate.index');
+})->name('donate');
+
+Route::get('/newsfeed1',function(){
+    return view('newsfeed.news1');
+})->name('news1');
+
+Route::get('/newsfeed2',function(){
+    return view('newsfeed.news2');
+})->name('news2');
 
 Route::controller(UIController::class)
     ->prefix('/home')

@@ -1,0 +1,154 @@
+.section-about {
+    background-color: #f8f9fa;
+}
+
+h5 {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.about-image img {
+    border-radius: 10px;
+}
+
+.btn-circle {
+    border-radius: 50%;
+    padding: 10px 15px;
+    font-size: 24px;
+    background-color: #ffffff;
+    color: #000;
+}
+
+.mission, .vision {
+    margin-top: 20px;
+}
+
+.awards h2 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.journey-section {
+    background-color: #000000;
+    padding: 50px;
+}
+
+.team-section {
+    background-color: #ffffff;
+}
+
+.team-section img {
+    width: 150px;
+    height: 150px;
+}
+
+.team-section h4 {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.team-section p {
+    font-size: 14px;
+    color: #777;
+}
+
+.team-info {
+    position: center;
+}
+
+.team-img {
+    height: 250px;
+    width: 250px;
+}
+
+.btn-donate {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    margin-top: 2px;
+    padding-left: 1.45rem;
+    padding-right: 1.45rem;
+}
+
+.btn-donate:hover{
+    color: #ffffff;
+    background-color: #302e2e;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.nav-link {
+    color: #000;
+    margin-right: 2rem;
+}
+
+.section-volunteer {
+    padding: 80px 0;
+    max-width: 1280px;
+    margin: 0 auto; /* Căn giữa section */
+}
+
+.volunteer-img {
+    filter: brightness(50%);
+    border-radius: 12px;
+    border: none; 
+}
+
+.text-volunteer {
+    color: white;
+}
+
+.btn-seemore {
+    border: none;
+    background-color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 0.4rem;
+}
+
+.btn-seemore:hover {
+    background-color: #000000;
+    color: #fff;
+}
+
+.card {
+    border: none;
+}
+
+.event-section {
+    background-color: #BEF3C0;
+    max-height: 300px;
+}
+
+.section-footer {
+    background-color: #111111;
+    color: white;
+    padding: 60px 0;
+}
+
+.footer-links a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .awards h2, .team-section h2 {
+        font-size: 24px;
+    }
+
+    .team-section img {
+        width: 100px;
+        height: 100px;
+    }
+}
