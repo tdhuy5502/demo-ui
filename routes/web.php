@@ -42,6 +42,14 @@ Route::get('/newsfeed2',function(){
     return view('newsfeed.news2');
 })->name('news2');
 
+Route::get('/events', function(){
+    return view('events-post.index');
+})->name('events');
+
+Route::get('/whatwedo', function(){
+    return view('whatwedo.index');
+})->name('whatwedo');
+
 Route::controller(UIController::class)
     ->prefix('/home')
     ->as('home.')
