@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\UIController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,6 +50,26 @@ Route::get('/events', function(){
 Route::get('/whatwedo', function(){
     return view('whatwedo.index');
 })->name('whatwedo');
+
+Route::get('/login-page', function(){
+    return view('auth.login');
+})->name('pageLogin');
+
+Route::controller(AdminLoginController::class)
+    ->group(function(){
+        Route::get('/login','getLogin')->name('getLogin');
+        Route::post('/login','postLogin')->name('postLogin');
+        Route::get('/logout','getLogout')->name('logout');
+});
+
+Route::middleware(['checkAdminLogin'])
+    ->prefix('/admin')
+    ->as('admin.')
+    ->group(function () {
+        Route::get('/', function () {
+            return view('master.main');
+        })->name('dashboard');
+});
 
 Route::controller(UIController::class)
     ->prefix('/home')
