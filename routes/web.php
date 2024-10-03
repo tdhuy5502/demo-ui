@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeContentController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\UIController;
 use Illuminate\Support\Facades\Route;
@@ -66,9 +67,22 @@ Route::middleware(['checkAdminLogin'])
     ->prefix('/admin')
     ->as('admin.')
     ->group(function () {
-        Route::get('/', function () {
-            return view('master.main');
-        })->name('dashboard');
+    Route::get('/', function () {
+        return view('master.main');
+    })->name('dashboard');
+
+    Route::controller(HomeContentController::class)
+    ->prefix('/home_content')
+    ->as('home_content.')
+    ->group(function(){
+        Route::get('','index')->name('index');
+        Route::get('/data','getData')->name('getData');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/{id}/update', 'update')->name('update');
+        Route::delete('{id}', 'destroy')->name('delete');
+    });
 });
 
 Route::controller(UIController::class)
