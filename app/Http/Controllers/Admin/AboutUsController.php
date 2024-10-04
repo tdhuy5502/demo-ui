@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\AboutUsRepository;
+use App\Http\Requests\AboutUs\StoreAboutUsRequest;
+use App\Http\Requests\AboutUs\UpdateAboutUsRequest;
+use App\Repositories\AboutUs\AboutUsRepository;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -27,15 +29,15 @@ class AboutUsController extends Controller
 
     public function index()
     {
-        return view('admin.about_us.index');
+        return view('admin.about-us.index');
     }
 
     public function create()
     {
-        return view('admin.about_us.create');
+        return view('admin.about-us.create');
     }
 
-    public function store(Request $request) // change request
+    public function store(StoreAboutUsRequest $request) // change request
     {
         try {
             DB::beginTransaction();
@@ -43,12 +45,12 @@ class AboutUsController extends Controller
             $this->aboutUsRepository->save($data);
             DB::commit();
 
-            return redirect()->route('admin.about_us.index')->with('success','Create Success');
+            return redirect()->route('admin.about-us.index')->with('success','Create Success');
         }
         catch(Exception $e)
         {
             DB::rollBack();
-            return redirect()->route('admin.about_us.create');
+            return redirect()->route('admin.about-us.create');
         }
     }
 
@@ -56,12 +58,12 @@ class AboutUsController extends Controller
     {
         $aboutUsData = $this->aboutUsRepository->getById($request->id);
 
-        return view('admin.about_us.edit',[
+        return view('admin.about-us.edit',[
             'aboutUsData' => $aboutUsData
         ]);
     }
 
-    public function update(Request $request)
+    public function update(UpdateAboutUsRequest $request)
     {
         try{
             DB::beginTransaction();
@@ -69,12 +71,12 @@ class AboutUsController extends Controller
             $this->aboutUsRepository->update($data);
             DB::commit();
 
-            return redirect()->route('admin.about_us.index')->with('success','Create Success');
+            return redirect()->route('admin.about-us.index')->with('success','Create Success');
         }
         catch(Exception $e)
         {
             DB::rollBack();
-            return redirect()->route('admin.about_us.show');
+            return redirect()->back();
         }
     }
 
@@ -85,7 +87,7 @@ class AboutUsController extends Controller
             $this->aboutUsRepository->delete($request->id);
             DB::commit();
 
-            return redirect()->route('admin.about_us.index')->with('success','Create Success');
+            return redirect()->route('admin.about-us.index')->with('success','Create Success');
         }
         catch(Exception $e)
         {

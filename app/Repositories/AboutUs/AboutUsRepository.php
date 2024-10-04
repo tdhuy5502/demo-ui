@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\AboutUs;
 
 use App\Models\AboutUs;
+use App\Repositories\BaseRepository;
 
 class AboutUsRepository extends BaseRepository {
 
