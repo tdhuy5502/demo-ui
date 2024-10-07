@@ -104,8 +104,12 @@ Route::middleware(['checkAdminLogin'])
     ->as('members.')
     ->group(function(){
         Route::get('','index')->name('index');
+        Route::get('/data','getData')->name('getData');
         Route::get('/create','create')->name('create');
-        Route::get('/show','show')->name('show');
+        Route::post('/store','store')->name('store');
+        Route::get('/show/{id}','show')->name('show');
+        Route::post('/{id}/update','update')->name('update');
+        Route::delete('{id}','destroy')->name('delete');
     });
 });
 

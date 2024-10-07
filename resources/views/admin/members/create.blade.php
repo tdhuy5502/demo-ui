@@ -5,16 +5,16 @@
     <div class="card-body shadow">
         <h3 class="fw-bold">Create</h3>
         <hr>
-        <form action="{{ route('admin.about-us.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.members.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <!-- Cột bên trái: các thẻ input -->
                 <div class="col-md-7">
                     <div class="mb-3">
                         <label for="">Member's name: </label>
-                        <input class="form-control" type="text" name="title" placeholder="Key name" value="{{ old('title') }}">
-                        @error('title')
-                            <span class="text-danger">{{ $message }}</span>   
+                        <input class="form-control" type="text" name="name" placeholder="Key name" value="{{ old('name') }}">
+                        @error('name')
+                            <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="mb-3">
@@ -33,10 +33,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="">Member's role: </label>
-                        <select id="company" class="form-control" name="role">
+                        <select class="form-control" name="role_id">
                             <option value="">Role</option>
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->id }}" {{ old('role_id') == $role->id ? 'selected' : '' }}>
+                                    {{ $role->name }}
+                                </option>
+                            @endforeach
                         </select>
-                        @error('role')
+                        @error('role_id')
                             <span class="text-danger">{{ $message }}</span>   
                         @enderror
                     </div>
