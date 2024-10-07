@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutUsController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\HomeContentController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\AdminLoginController;
@@ -111,6 +112,8 @@ Route::middleware(['checkAdminLogin'])
         Route::post('/{id}/update','update')->name('update');
         Route::delete('{id}','destroy')->name('delete');
     });
+
+    Route::resource('events',EventController::class);
 });
 
 Route::controller(UIController::class)
