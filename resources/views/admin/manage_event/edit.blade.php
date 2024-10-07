@@ -8,25 +8,26 @@
                 Update
             </h3>
             <hr>
-            <form action="#" method="post">
+            <form action="{{ route('admin.events.update',$event->id) }}" method="post">
                 @csrf
                 <div>
                     <label class="" for="">Event's name: </label>
-                    <input class="form-control" type="text" name="name" placeholder="Key name" value="{{ old('name') }}">
+                    <input type="hidden" name="id" value="{{ $event->id }}">
+                    <input class="form-control" type="text" name="name" placeholder="Key name" value="{{ old('name',$event->name) }}">
                     @error('name')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
                 <div>
                     <label class="" for="">Event's destination: </label>
-                    <input class="form-control" type="text" name="name" placeholder="Key name" value="{{ old('destination') }}">
-                    @error('name')
+                    <input class="form-control" type="text" name="destination" placeholder="Key name" value="{{ old('destination',$event->destination) }}">
+                    @error('destination')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
                 <div>
                     <label class="" for="">Event's main content: </label>
-                    <textarea class="form-control" type="text" name="content" rows="4" placeholder="Type contents here...">{{ old('content') }}</textarea>
+                    <textarea class="form-control" type="text" name="content" rows="4" placeholder="Type contents here...">{{ old('content',$event->content) }}</textarea>
                     @error('content')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
@@ -34,7 +35,7 @@
                 <div>
                     <label class="" for="">Date: </label>
                     <div class="">
-                        <input type="text" class="form-control col-md-2" id="datepicker" placeholder="Choose a date">
+                        <input name="date" type="text" class="form-control col-md-2" id="datepicker" placeholder="Choose a date" value="{{ old('date',$event->date) }}">
                     </div>
                     @error('date')
                         <span class="text-danger">{{ $message }}</span>   
@@ -54,8 +55,8 @@
 <script>
     $(document).ready(function() {
         $('#datepicker').datepicker({
-            format: 'mm/dd/yyyy', 
-            autoclose: true 
+            format: 'yyyy-mm-dd',
+            autoclose: true
         });
     });
 </script>

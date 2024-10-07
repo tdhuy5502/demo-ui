@@ -113,7 +113,21 @@ Route::middleware(['checkAdminLogin'])
         Route::delete('{id}','destroy')->name('delete');
     });
 
-    Route::resource('events',EventController::class);
+    // Route::resource('events',EventController::class);
+    // Route::get('events/data', [EventController::class, 'getData'])->name('events.getData');
+    Route::controller(EventController::class)
+    ->prefix('/events')
+    ->as('events.')
+    ->group(function(){
+        Route::get('','index')->name('index');
+        Route::get('/data','getData')->name('getData');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/show/{id}','show')->name('show');
+        Route::post('/{id}/update','update')->name('update');
+        Route::delete('{id}','destroy')->name('delete');
+        Route::delete('{id}','destroy')->name('delete');
+    });
 });
 
 Route::controller(UIController::class)

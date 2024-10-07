@@ -8,36 +8,36 @@
                 Create
             </h3>
             <hr>
-            <form action="#" method="post">
+            <form action="{{ route('admin.events.store') }}" method="post">
                 @csrf
                 <div>
-                    <label class="" for="">Event's name: </label>
-                    <input class="form-control" type="text" name="name" placeholder="Key name" value="{{ old('name') }}">
+                    <label class="text-dark" for="">Event's name: </label>
+                    <input class="form-control" type="text" name="name" placeholder="Event title" value="{{ old('name') }}">
                     @error('name')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
                 <div>
-                    <label class="" for="">Event's destination: </label>
-                    <input class="form-control" type="text" name="name" placeholder="Key name" value="{{ old('destination') }}">
-                    @error('name')
+                    <label class="text-dark" for="">Event's destination: </label>
+                    <input class="form-control" type="text" name="destination" placeholder="Destination" value="{{ old('destination') }}">
+                    @error('destination')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
                 <div>
-                    <label class="" for="">Event's main content: </label>
+                    <label class="text-dark" for="">Event's main content: </label>
                     <textarea class="form-control" type="text" name="content" rows="4" placeholder="Type contents here...">{{ old('content') }}</textarea>
                     @error('content')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
                 <div>
-                    <label class="" for="">Date: </label>
+                    <label class="text-dark" for="">Date: </label>
                     <div class="">
-                        <input type="text" class="form-control col-md-2" id="datepicker" placeholder="Choose a date">
+                        <input name="date" type="text" class="form-control col-md-2" id="datepicker" placeholder="Choose a date">
                     </div>
                     @error('date')
-                        <span class="text-danger">{{ $message }}</span>   
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
                 <hr>
@@ -54,8 +54,8 @@
 <script>
     $(document).ready(function() {
         $('#datepicker').datepicker({
-            format: 'mm/dd/yyyy', 
-            autoclose: true 
+            format: 'yyyy-mm-dd',
+            autoclose: true
         });
     });
 </script>
