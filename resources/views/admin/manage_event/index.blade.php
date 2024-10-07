@@ -11,7 +11,7 @@
                     <div class="fl-right inline-blk">
                         <a title=""
                             class="btn btn-success btn-sm px-4 text-white"
-                            href="#"><i
+                            href="{{ route('admin.events.create') }}"><i
                                 class='fas fa-plus'></i></a>
                     </div>
                 </div>
@@ -24,26 +24,28 @@
     </div>
 @endsection
 @section('custom-scripts')
-{{-- <script>
+<script>
     $(document).ready(function() {
-        $('#about-us-table').DataTable({
+        $('#events-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "#",
+            ajax: "{{ route('admin.events.getData') }}",
             columns: [
                 { 
                     data: 'id', name: 'id',
                     orderable: false, 
                 },
-                { data: 'title', name: 'title' },
+                { data: 'name', name: 'name' },
+                { data: 'destination', name: 'destination' },
                 { data: 'content', name: 'content' },
+                { data: 'event_date', name: 'event_date' },
                 { 
                     data: 'id', 
                     name: 'action',
                     render: function(data, type, row, meta) {
                         return `
-                            <a href="/admin/about-us/show/${data}" class="/btn btn-sm btn-primary">Edit</a>
-                            <form action="{{ route('admin.about-us.delete', 'data') }}" method="POST" style="display:inline;">
+                            <a href="/admin/events/show/${data}" class="/btn btn-sm btn-primary">Edit</a>
+                            <form action="{{ route('admin.events.delete', 'data') }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <input type="hidden" name="id" value="${data}">
@@ -54,5 +56,5 @@
             ]
         });
     });
-</script>  --}}
+</script> 
 @endsection

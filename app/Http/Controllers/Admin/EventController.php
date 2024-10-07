@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ManageEvent\StoreEventRequest;
+use App\Http\Requests\Admin\ManageEvent\UpdateEventRequest;
 use App\Repositories\ManageEvent\EventRepository;
 use Exception;
 use Illuminate\Http\Request;
@@ -35,12 +37,12 @@ class EventController extends Controller
         return view('admin.manage_event.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreEventRequest $request)
     {
         try
         {
             DB::beginTransaction();
-            $data = $request->all(); //validated
+            $data = $request->validated(); //validated
             $this->eventRepository->create($data);
             DB::commit();
 
@@ -64,12 +66,12 @@ class EventController extends Controller
         ]);
     }
 
-    public function update(Request $request)
+    public function update(UpdateEventRequest $request)
     {
         try
         {
             DB::beginTransaction();
-            $event = $request->all(); // validated
+            $event = $request->validated(); // validated
             $this->eventRepository->update($event);
             DB::commit();
 
