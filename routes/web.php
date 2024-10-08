@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\HomeContentController;
 use App\Http\Controllers\Admin\MemberController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\UIController;
 use Illuminate\Support\Facades\Route;
@@ -128,6 +129,8 @@ Route::middleware(['checkAdminLogin'])
         Route::delete('{id}','destroy')->name('delete');
         Route::delete('{id}','destroy')->name('delete');
     });
+
+    Route::resource('projects',ProjectController::class);
 });
 
 Route::controller(UIController::class)
