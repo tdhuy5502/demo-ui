@@ -2,16 +2,31 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\News\StoreNewsRequest;
+use App\Http\Requests\Admin\News\UpdateNewsRequest;
+use App\Repositories\News\NewsRepository;
+use SebastianBergmann\Comparator\ExceptionComparator;
 
 class NewsController extends Controller
 {
+    
+    protected $newsRepository;
+
     //
-
-    public function __construct()
+    public function __construct(NewsRepository $newsRepository)
     {
+        $this->newsRepository = $newsRepository;
+    }
 
+    public function getData()
+    {
+        $newsList = $this->newsRepository->getAll();
+
+        return datatables()->of($newsList)->make(true);
     }
 
     public function index()
@@ -24,8 +39,68 @@ class NewsController extends Controller
         return view('admin.news.create');
     }
 
-    public function show()
+    public function store(StoreNewsRequest $request)
     {
-        return view('admin.news.edit');
+        try
+        {
+            DB::beginTransaction();
+            $data = $request->validated();
+            $this->newsRepository->create($data);
+            DB::commit();
+
+            return redirect()->route('admin.news.index');
+        }
+        catch(Exception $e)
+        {
+            $this->logError($e);
+            DB::rollBack();
+            return redirect()->back();
+        }
+    }
+
+    public function show(Request $request)
+    {   
+        $news = $this->newsRepository->getById($request->id);
+
+        return view('admin.news.edit')->with([
+            'news' => $news
+        ]);
+    }
+
+    public function update(UpdateNewsRequest $request)
+    {
+        try
+        {
+            DB::beginTransaction();
+            $data = $request->validated();
+            $this->newsRepository->update($data);
+            DB::commit();
+
+            return redirect()->route('admin.news.index');
+        }
+        catch(Exception $e)
+        {
+            $this->logError($e);
+            DB::rollBack();
+            return redirect()->back();
+        }
+    }
+
+    public function destroy(Request $request)
+    {
+        try
+        {
+            DB::beginTransaction();
+            $this->newsRepository->delete($request->id);
+            DB::commit();   
+
+            return redirect()->route('admin.news.index');
+        }
+        catch(Exception $e)
+        {
+            $this->logError($e);
+            DB::rollBack();
+            return redirect()->back();
+        }
     }
 }

@@ -8,25 +8,26 @@
                 Update
             </h3>
             <hr>
-            <form action="{{ route('admin.events.store') }}" method="post">
+            <form action="{{ route('admin.news.update',$news->id) }}" method="post">
                 @csrf
                 <div>
+                    <input type="hidden" name="id" value="{{ $news->id }}">
                     <label class="text-dark" for="">Main title: </label>
-                    <input class="form-control" type="text" name="title" placeholder="Event title" value="{{ old('title') }}">
+                    <input class="form-control" type="text" name="title" placeholder="Event title" value="{{ old('title',$news->title) }}">
                     @error('title')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
                 <div>
                     <label class="text-dark" for="">Content: </label>
-                    <textarea class="form-control" type="text" name="content" rows="6" placeholder="Type contents here...">{{ old('content') }}</textarea>
+                    <textarea class="form-control" type="text" name="content" rows="6" placeholder="Type contents here...">{{ old('content',$news->content) }}</textarea>
                     @error('content')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
                 <div>
                     <label class="text-dark" for="">Section's title: </label>
-                    <input class="form-control" type="text" name="subtitle" placeholder="Enter subtitle">
+                    <input class="form-control" type="text" name="subtitle" placeholder="Enter subtitle" value="{{ old('subtitle',$news->subtitle) }}">
                     @error('subtitle')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
