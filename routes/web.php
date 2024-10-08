@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\HomeContentController;
 use App\Http\Controllers\Admin\MemberController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\UIController;
@@ -139,6 +140,19 @@ Route::middleware(['checkAdminLogin'])
         Route::get('/create','create')->name('create');
         Route::post('/store','store')->name('store');
         Route::get('/show/{id}','show')->name('show');
+        Route::post('/{id}/update','update')->name('update');
+        Route::delete('{id}','destroy')->name('delete');
+    });
+
+    Route::controller(NewsController::class)
+    ->prefix('/news')
+    ->as('news.')
+    ->group(function(){
+        Route::get('','index')->name('index');
+        Route::get('/data','getData')->name('getData');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/show','show')->name('show');
         Route::post('/{id}/update','update')->name('update');
         Route::delete('{id}','destroy')->name('delete');
     });
