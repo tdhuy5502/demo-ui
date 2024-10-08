@@ -8,7 +8,7 @@
                 Create
             </h3>
             <hr>
-            <form action="{{ route('admin.events.store') }}" method="post">
+            <form action="{{ route('admin.projects.store') }}" method="post">
                 @csrf
                 <div>
                     <label class="text-dark" for="">Project's title: </label>
@@ -26,8 +26,8 @@
                 </div>
                 <div>
                     <label class="text-dark" for="">People joined quantity: </label>
-                    <input class="form-control" type="text" name="people_quantity" placeholder="Destination" value="{{ old('people_quantity') }}">
-                    @error('people_quantity')
+                    <input class="form-control" type="text" name="people_joined" placeholder="Destination" value="{{ old('people_joined') }}">
+                    @error('people_joined')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>

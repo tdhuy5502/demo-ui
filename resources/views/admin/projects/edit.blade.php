@@ -8,32 +8,33 @@
                 Update
             </h3>
             <hr>
-            <form action="{{ route('admin.events.store') }}" method="post">
+            <form action="{{ route('admin.projects.update',$project->id) }}" method="post">
                 @csrf
                 <div>
+                    <input type="hidden" name="id" value="{{ $project->id }}">
                     <label class="text-dark" for="">Project's title: </label>
-                    <input class="form-control" type="text" name="title" placeholder="Project title" value="{{ old('title') }}">
+                    <input class="form-control" type="text" name="title" placeholder="Project title" value="{{ old('title',$project->title) }}">
                     @error('title')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
                 <div>
                     <label class="text-dark" for="">Project's main content: </label>
-                    <textarea class="form-control" type="text" name="content" rows="6" placeholder="Type contents here...">{{ old('content') }}</textarea>
+                    <textarea class="form-control" type="text" name="content" rows="6" placeholder="Type contents here...">{{ old('content',$project->content) }}</textarea>
                     @error('content')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
                 <div>
                     <label class="text-dark" for="">People joined quantity: </label>
-                    <input class="form-control" type="text" name="people_quantity" placeholder="Destination" value="{{ old('people_quantity') }}">
-                    @error('people_quantity')
+                    <input class="form-control" type="text" name="people_joined" placeholder="Destination" value="{{ old('people_joined',$project->people_joined) }}">
+                    @error('people_joined')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
                 <div>
                     <label class="text-dark" for="">Project's result: </label>
-                    <input class="form-control" type="text" name="result" placeholder="Result" value="{{ old('result') }}">
+                    <input class="form-control" type="text" name="result" placeholder="Result" value="{{ old('result',$project->result) }}">
                     @error('result')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
