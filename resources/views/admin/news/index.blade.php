@@ -11,7 +11,7 @@
                     <div class="fl-right inline-blk">
                         <a title=""
                             class="btn btn-success btn-sm px-4 text-white"
-                            href="{{ route('admin.events.create') }}"><i
+                            href="{{ route('admin.news.create') }}"><i
                                 class='fas fa-plus'></i></a>
                     </div>
                 </div>
@@ -25,36 +25,35 @@
 @endsection
 @section('custom-scripts')
 <script>
-    // $(document).ready(function() {
-    //     $('#news-table').DataTable({
-    //         processing: true,
-    //         serverSide: true,
-    //         ajax: "{{ route('admin.news.getData') }}",
-    //         columns: [
-    //             { 
-    //                 data: 'id', name: 'id',
-    //                 orderable: false, 
-    //             },
-    //             { data: 'name', name: 'name' },
-    //             { data: 'destination', name: 'destination' },
-    //             { data: 'content', name: 'content' },
-    //             { data: 'event_date', name: 'event_date' },
-    //             { 
-    //                 data: 'id', 
-    //                 name: 'action',
-    //                 render: function(data, type, row, meta) {
-    //                     return `
-    //                         <a href="/admin/events/show/${data}" class="/btn btn-sm btn-primary">Edit</a>
-    //                         <form action="{{ route('admin.events.delete', 'data') }}" method="POST" style="display:inline;">
-    //                             @csrf
-    //                             @method('DELETE')
-    //                             <input type="hidden" name="id" value="${data}">
-    //                             <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-    //                         </form>`;
-    //                 }
-    //             },
-    //         ]
-    //     });
-    // });
+    $(document).ready(function() {
+        $('#news-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('admin.news.getData') }}",
+            columns: [
+                { 
+                    data: 'id', name: 'id',
+                    orderable: false, 
+                },
+                { data: 'title', name: 'title' },
+                { data: 'content', name: 'content' },
+                { data: 'subtitle', name: 'subtitle' },
+                { 
+                    data: 'id', 
+                    name: 'action',
+                    render: function(data, type, row, meta) {
+                        return `
+                            <a href="/admin/news/show/${data}" class="/btn btn-sm btn-primary">Edit</a>
+                            <form action="{{ route('admin.news.delete', 'data') }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden" name="id" value="${data}">
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>`;
+                    }
+                },
+            ]
+        });
+    });
 </script> 
 @endsection

@@ -8,7 +8,7 @@
                 Create
             </h3>
             <hr>
-            <form action="{{ route('admin.events.store') }}" method="post">
+            <form action="{{ route('admin.news.store') }}" method="post">
                 @csrf
                 <div>
                     <label class="text-dark" for="">Main title: </label>
@@ -26,7 +26,7 @@
                 </div>
                 <div>
                     <label class="text-dark" for="">Section's title: </label>
-                    <input class="form-control" type="text" name="subtitle" placeholder="Enter subtitle">
+                    <input class="form-control" type="text" name="subtitle" placeholder="Enter subtitle" value="{{ old('subtitle') }}">
                     @error('subtitle')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
