@@ -129,8 +129,19 @@ Route::middleware(['checkAdminLogin'])
         Route::delete('{id}','destroy')->name('delete');
         Route::delete('{id}','destroy')->name('delete');
     });
-
-    Route::resource('projects',ProjectController::class);
+    
+    Route::controller(ProjectController::class)
+    ->prefix('/projects')
+    ->as('projects.')
+    ->group(function(){
+        Route::get('','index')->name('index');
+        Route::get('/data','getData')->name('getData');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/show/{id}','show')->name('show');
+        Route::post('/{id}/update','update')->name('update');
+        Route::delete('{id}','destroy')->name('delete');
+    });
 });
 
 Route::controller(UIController::class)
