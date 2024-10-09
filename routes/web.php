@@ -175,7 +175,8 @@ Route::middleware(['checkAdminLogin'])
     ->group(function(){
         Route::get('','index')->name('index');
         Route::get('/data','getData')->name('getData');
-        Route::get('/show','show')->name('show');
+        Route::get('/show/{id}','show')->name('show');
+        Route::post('/{id}/update','update')->name('update');
         Route::delete('{id}','destroy')->name('delete');
     });
 });
