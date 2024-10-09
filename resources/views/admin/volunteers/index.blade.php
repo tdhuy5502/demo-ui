@@ -25,7 +25,7 @@
         $('#volunteers-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "",
+            ajax: "{{ route('admin.volunteers.getData') }}",
             columns: [
                 { 
                     data: 'id', name: 'id',
@@ -41,7 +41,7 @@
                     name: 'action',
                     render: function(data, type, row, meta) {
                         return `
-                            <a href="/admin/members/show/${data}" class="/btn btn-sm btn-primary">Edit</a>
+                            <a href="/admin/volunteers/show/${data}" class="/btn btn-sm btn-primary">Edit</a>
                             <form action="{{ route('admin.members.delete', 'data') }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')

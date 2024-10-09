@@ -8,36 +8,34 @@
                 Update
             </h3>
             <hr>
-            <form action="" method="post">
+            <form action="{{ route('admin.volunteers.update',$volunteer->id) }}" method="post">
                 @csrf
                 <div>
-                    <input type="hidden" name="id" value="">
+                    <input type="hidden" name="id" value="{{ $volunteer->id }}">
                     <label class="text-dark" for="">First name: </label>
-                    <input class="form-control" type="text" name="title" placeholder="Event title" value="{{ old('title') }}">
-                    @error('title')
+                    <input class="form-control" type="text" name="first_name" placeholder="First name" value="{{ old('first_name',$volunteer->first_name) }}">
+                    @error('first_name')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
                 <div>
-                    <input type="hidden" name="id" value="">
                     <label class="text-dark" for="">Last name: </label>
-                    <input class="form-control" type="text" name="title" placeholder="Event title" value="{{ old('title') }}">
-                    @error('title')
+                    <input class="form-control" type="text" name="last_name" placeholder="Last name" value="{{ old('last_name',$volunteer->last_name) }}">
+                    @error('last_name')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
                 <div>
-                    <input type="hidden" name="id" value="">
                     <label class="text-dark" for="">Email: </label>
-                    <input class="form-control" type="text" name="title" placeholder="Event title" value="{{ old('title') }}">
-                    @error('title')
+                    <input class="form-control" type="text" name="email" placeholder="Volunteer's email" value="{{ old('email',$volunteer->email) }}">
+                    @error('email')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
                 <div>
-                    <label class="text-dark" for="">Content: </label>
-                    <textarea class="form-control" type="text" name="content" rows="5" placeholder="Type contents here...">{{ old('content') }}</textarea>
-                    @error('content')
+                    <label class="text-dark" for="">Message: </label>
+                    <textarea class="form-control" type="text" name="content" rows="5" readonly>{{ old('message',$volunteer->message) }}</textarea>
+                    @error('message')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
