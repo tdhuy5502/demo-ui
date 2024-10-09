@@ -19,4 +19,14 @@ class Project extends Model
         'donated_qty',
         'result',
     ];
+
+    public function donations()
+    {
+        return $this->hasMany(Donation::class,'id');
+    }
+
+    public function volunteers()
+    {
+        return $this->hasMany(Volunteer::class);
+    }
 }
