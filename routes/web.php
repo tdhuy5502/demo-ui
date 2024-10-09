@@ -1,13 +1,16 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutUsController;
+use App\Http\Controllers\Admin\DonationController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\HomeContentController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\VolunnteerController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\UIController;
+use App\Models\Donation;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -154,6 +157,25 @@ Route::middleware(['checkAdminLogin'])
         Route::post('/store','store')->name('store');
         Route::get('/show/{id}','show')->name('show');
         Route::post('/{id}/update','update')->name('update');
+        Route::delete('{id}','destroy')->name('delete');
+    });
+
+    Route::controller(DonationController::class)
+    ->prefix('/donations')
+    ->as('donations.')
+    ->group(function(){
+        Route::get('','index')->name('index');
+        Route::get('/data','getData')->name('getData');
+        Route::delete('{id}','destroy')->name('delete');
+    });
+
+    Route::controller(VolunnteerController::class)
+    ->prefix('/volunteers')
+    ->as('volunteers.')
+    ->group(function(){
+        Route::get('','index')->name('index');
+        Route::get('/data','getData')->name('getData');
+        Route::get('/show','show')->name('show');
         Route::delete('{id}','destroy')->name('delete');
     });
 });
