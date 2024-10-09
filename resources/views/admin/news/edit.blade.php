@@ -8,7 +8,7 @@
                 Update
             </h3>
             <hr>
-            <form action="{{ route('admin.news.update',$news->id) }}" method="post">
+            <form action="{{ route('admin.news.update',$news->id) }}" method="post"  enctype="multipart/form-data">
                 @csrf
                 <div>
                     <input type="hidden" name="id" value="{{ $news->id }}">
@@ -32,11 +32,19 @@
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
-                <div>
+                <div class="mt-3">
                     <label class="text-dark" for="">Post image: </label>
-                    <div class="">
-                        <input name="image" type="file" class="btn btn-dark" placeholder="Upload main image">
+                    <label for="fileUpload" class="btn btn-primary">
+                        <i class="fa fa-upload"></i> Upload Image
+                    </label>
+                    <input type="file" id="fileUpload" style="display: none;" />
+                    @if($news->image)
+                    <div class="card mt-3 col-md-2">
+                        <div class="card-body">
+                            <img src="{{ asset('uploads/news/' . $news->image) }}" alt="Current Image" width="200">
+                        </div>
                     </div>
+                    @endif
                     @error('image')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror

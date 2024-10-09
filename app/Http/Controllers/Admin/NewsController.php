@@ -45,6 +45,11 @@ class NewsController extends Controller
         {
             DB::beginTransaction();
             $data = $request->validated();
+
+            $imageName = time() . '.' . $request->image->getClientOriginalName();  
+            $request->image->move(public_path('uploads/news'), $imageName);
+            $data['image'] = $imageName;
+
             $this->newsRepository->create($data);
             DB::commit();
 
@@ -73,6 +78,19 @@ class NewsController extends Controller
         {
             DB::beginTransaction();
             $data = $request->validated();
+            $news = $this->newsRepository->getById($request->id);
+            if($request->hasFile('image'))
+            {
+                if ($news->image) {
+                    $oldImagePath = public_path('uploads/news/' . $news->image);
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath);
+                    }
+                }
+                $imageName = time() . '.' . $request->image->getClientOriginalName();  
+                $request->image->move(public_path('uploads/news'), $imageName);
+                $data['image'] = $imageName;
+            }
             $this->newsRepository->update($data);
             DB::commit();
 

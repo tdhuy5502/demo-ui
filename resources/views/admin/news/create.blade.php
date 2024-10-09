@@ -8,7 +8,7 @@
                 Create
             </h3>
             <hr>
-            <form action="{{ route('admin.news.store') }}" method="post">
+            <form action="{{ route('admin.news.store') }}" method="post"  enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label class="text-dark" for="">Main title: </label>
@@ -31,11 +31,12 @@
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
-                <div>
+                <div class="mt-3">
                     <label class="text-dark" for="">Post image: </label>
-                    <div class="">
-                        <input name="image" type="file" class="btn btn-dark" placeholder="Upload main image">
-                    </div>
+                    <label for="fileUpload" class="btn btn-primary">
+                        <i class="fa fa-upload"></i> Upload Image
+                    </label>
+                    <input name="image" type="file" id="fileUpload" style="display: none;" />
                     @error('image')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
