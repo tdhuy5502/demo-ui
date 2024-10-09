@@ -25,7 +25,7 @@
         $('#donations-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "",
+            ajax: "{{ route('admin.donations.getData') }}",
             columns: [
                 { 
                     data: 'id', name: 'id',
