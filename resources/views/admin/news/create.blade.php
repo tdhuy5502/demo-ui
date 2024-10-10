@@ -8,7 +8,7 @@
                 Create
             </h3>
             <hr>
-            <form action="{{ route('admin.news.store') }}" method="post">
+            <form action="{{ route('admin.news.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label class="text-dark" for="">Main title: </label>
@@ -31,14 +31,24 @@
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
-                <div>
-                    <label class="text-dark" for="">Post image: </label>
-                    <div class="">
-                        <input name="image" type="file" class="btn btn-dark" placeholder="Upload main image">
-                    </div>
+                <div class="mt-3">
+                    <label class="text-dark" for="">Post main image: </label>
+                    <label for="fileUpload" class="btn btn-primary">
+                        <i class="fa fa-upload"></i> Upload Image
+                    </label>
+                    <input name="image" type="file" id="fileUpload" style="display: none;" />
                     @error('image')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
+                    <!-- Card container for image preview -->
+                    <div id="imagePreview" class="card mt-3" style="display: none; width: 220px;">
+                        <div class="card-body p-2" style="position: relative;">
+                            <img src="" id="previewImg" alt="Image Preview" class="card-img-top" style="max-height: 200px; border: 1px solid #ccc;" />
+                            <button type="button" id="removeImage" class="btn btn-danger btn-sm" style="position: absolute; top: 5px; right: 5px;">
+                                &times;
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <hr>
                 <div>
@@ -49,4 +59,30 @@
         </div>
     </div>
 </div>
+@endsection
+@section('custom-scripts')
+<script>
+    $(document).ready(function () {
+        $('#fileUpload').on('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#previewImg').attr('src', e.target.result);
+                    $('#imagePreview').show();
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        $('#removeImage').on('click', function () {
+            
+            $('#fileUpload').val('');
+        
+            $('#imagePreview').hide();
+            
+            $('#previewImg').attr('src', '');
+        });
+    });
+</script>
 @endsection

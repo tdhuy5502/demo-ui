@@ -32,15 +32,31 @@
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
-                <div>
-                    <label class="text-dark" for="">Post image: </label>
-                    <div class="">
-                        <input name="image" type="file" class="btn btn-dark" placeholder="Upload main image">
-                    </div>
-                    @error('image')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                <div class="mt-3">
+                    <label class="text-dark" for="">Post main image: </label>
+                    <label for="fileUpload" class="btn btn-primary">
+                        <i class="fa fa-upload"></i> Upload Image
+                    </label>
+                    <input name="image" type="file" id="fileUpload" style="display: none;" />
                 </div>
+                @if($news->image)
+                <div id="existingImagePreview" class="card mt-3 col-md-2">
+                    <div class="card-body p-2" style="position: relative;">
+                        <img src="{{ asset('uploads/news/' . $news->image) }}" alt="Current Image" id="currentImage" class="card-img-top" style="max-height: 200px; border: 1px solid #ccc;" />
+                        <button type="button" id="removeCurrentImage" class="btn btn-danger btn-sm" style="position: absolute; top: 5px; right: 5px;">&times;</button>
+                    </div>
+                </div>
+                @endif
+                <!-- New image preview -->
+                <div id="newImagePreview" class="card mt-3 col-md-2" style="display: none;">
+                    <div class="card-body p-2" style="position: relative;">
+                        <img src="" id="previewImg" alt="New Image Preview" class="card-img-top" style="max-height: 200px; border: 1px solid #ccc;" />
+                        <button type="button" id="removeNewImage" class="btn btn-danger btn-sm" style="position: absolute; top: 5px; right: 5px;">&times;</button>
+                    </div>
+                </div>
+                @error('image')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
                 <hr>
                 <div>
                     <button class="btn btn-primary" type="submit">Save</button>
@@ -50,4 +66,49 @@
         </div>
     </div>
 </div>
+@endsection
+@section('custom-scripts')
+<script>
+    $(document).ready(function () {
+        $('#fileUpload').on('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#previewImg').attr('src', e.target.result);
+                    $('#newImagePreview').show();
+                    $('#existingImagePreview').hide(); 
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        $('#removeNewImage').on('click', function () {
+            $('#fileUpload').val('');
+            $('#newImagePreview').hide();
+            $('#existingImagePreview').show();
+            $('#previewImg').attr('src', '');
+        });
+        $('#removeCurrentImage').on('click', function () {
+            let postId = {{ $news->id }};
+
+            $.ajax({
+                url: "{{ route('admin.news.removeImage', ':id') }}".replace(':id', postId),
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                },
+                success: function (response) {
+                    if (response.success) {
+                        $('#existingImagePreview').hide();
+                        $('#fileUpload').val('');
+                    }
+                },
+                error: function (xhr) {
+                    console.log(xhr.responseText);
+                    alert('Error response.');
+                }
+            });
+        });
+    });
+</script>
 @endsection
