@@ -51,6 +51,14 @@ class MemberController extends Controller
         {
             DB::beginTransaction();
             $data = $request->validated();
+
+            if($request->avatar)
+            {
+                $imageName = time() . '.' . $request->avatar->getClientOriginalName();  
+                $request->avatar->move(public_path('uploads/members'), $imageName);
+                $data['avatar'] = $imageName;
+            }
+
             $this->memberRepository->save($data);
             DB::commit();
 
@@ -82,8 +90,23 @@ class MemberController extends Controller
     {
         try
         {
+            $member = $this->memberRepository->getById($request->id);
             DB::beginTransaction();
             $data = $request->validated();
+
+            if($request->hasFile('avatar'))
+            {
+                if ($member->avatar) {
+                    $oldImagePath = public_path('uploads/members/' . $member->avatar);
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath);
+                    }
+                }
+                $imageName = time() . '.' . $request->avatar->getClientOriginalName();  
+                $request->avatar->move(public_path('uploads/members'), $imageName);
+                $data['avatar'] = $imageName;
+            }
+
             $this->memberRepository->update($data);
             DB::commit();
 

@@ -41,7 +41,8 @@ class StoreMemberRequest extends FormRequest
                     return $query->whereNull('deleted_at');
                 }),
             ],
-            'role_id' => 'sometimes|numeric'
+            'role_id' => 'sometimes|numeric',
+            'avatar' => 'nullable'
         ];
     }
 

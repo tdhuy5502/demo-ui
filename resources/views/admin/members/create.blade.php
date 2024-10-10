@@ -45,6 +45,25 @@
                             <span class="text-danger">{{ $message }}</span>   
                         @enderror
                     </div>
+                    <div class="mt-3">
+                        <label class="text-dark" for="">Avatar: </label>
+                        <label for="fileUpload" class="btn btn-primary">
+                            <i class="fa fa-upload"></i> Upload Image
+                        </label>
+                        <input name="avatar" type="file" id="fileUpload" style="display: none;" />
+                        @error('avatar')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        <!-- Card container for image preview -->
+                        <div id="imagePreview" class="card mt-3" style="display: none; width: 220px;">
+                            <div class="card-body p-2" style="position: relative;">
+                                <img src="" id="previewImg" alt="Image Preview" class="card-img-top" style="max-height: 200px; border: 1px solid #ccc;" />
+                                <button type="button" id="removeImage" class="btn btn-danger btn-sm" style="position: absolute; top: 5px; right: 5px;">
+                                    &times;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -56,4 +75,30 @@
         </form>
     </div>
 </div>
+@endsection
+@section('custom-scripts')
+<script>
+    $(document).ready(function () {
+        $('#fileUpload').on('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#previewImg').attr('src', e.target.result);
+                    $('#imagePreview').show();
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        $('#removeImage').on('click', function () {
+            
+            $('#fileUpload').val('');
+        
+            $('#imagePreview').hide();
+            
+            $('#previewImg').attr('src', '');
+        });
+    });
+</script>
 @endsection
