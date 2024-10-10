@@ -136,4 +136,22 @@ class MemberController extends Controller
             return redirect()->back();
         }
     }
+
+    public function removeAvatar($id)
+    {
+        $member = $this->memberRepository->getById($id);
+
+        if ($member && $member->avatar) {
+            $filePath = public_path('uploads/members/' . $member->avatar);
+
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+
+            $member->avatar = null; 
+            $member->save();
+        }
+
+        return response()->json(['success' => true]);
+    }
 }

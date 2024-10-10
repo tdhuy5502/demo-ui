@@ -99,15 +99,32 @@
                 reader.readAsDataURL(file);
             }
         });
-        $('#removeCurrentImage').on('click', function () {
-            $('#existingImagePreview').hide();
-            $('#fileUpload').val('');
-        });
         $('#removeNewImage').on('click', function () {
             $('#fileUpload').val('');
             $('#newImagePreview').hide();
             $('#existingImagePreview').show();
             $('#previewImg').attr('src', '');
+        });
+        $('#removeCurrentImage').on('click', function () {
+            let memberId = {{ $member->id }};
+
+            $.ajax({
+                url: "{{ route('admin.members.removeAvatar', ':id') }}".replace(':id', memberId),
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                },
+                success: function (response) {
+                    if (response.success) {
+                        $('#existingImagePreview').hide();
+                        $('#fileUpload').val('');
+                    }
+                },
+                error: function (xhr) {
+                    console.log(xhr.responseText);
+                    alert('Error response.');
+                }
+            });
         });
     });
 </script>

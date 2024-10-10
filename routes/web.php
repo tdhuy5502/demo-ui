@@ -116,6 +116,7 @@ Route::middleware(['checkAdminLogin'])
         Route::get('/show/{id}','show')->name('show');
         Route::post('/{id}/update','update')->name('update');
         Route::delete('{id}','destroy')->name('delete');
+        Route::post('{id}/remove-avatar', 'removeAvatar')->name('removeAvatar');
     });
 
     // Route::resource('events',EventController::class);
