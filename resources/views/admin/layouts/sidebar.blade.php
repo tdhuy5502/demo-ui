@@ -36,22 +36,52 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="{{ route('admin.home_content.index') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Home Content</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.about-us.index') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>About Us Content</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.members.index') }}">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Members</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ route('admin.events.index') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Events</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ route('admin.donations.index') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Donations</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.news.index') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>News</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.projects.index') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Projects</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.volunteers.index') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Volunteers</span></a>
     </li>
 
     <!-- Divider -->
