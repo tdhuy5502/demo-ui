@@ -45,6 +45,14 @@ class NewsController extends Controller
         {
             DB::beginTransaction();
             $data = $request->validated();
+            
+            if($request->image)
+            {
+                $imageName = time() . '.' . $request->image->getClientOriginalName();  
+                $request->image->move(public_path('uploads/news'), $imageName);
+                $data['image'] = $imageName;
+            }
+
             $this->newsRepository->create($data);
             DB::commit();
 
@@ -71,8 +79,23 @@ class NewsController extends Controller
     {
         try
         {
+            $news = $this->newsRepository->getById($request->id);
             DB::beginTransaction();
             $data = $request->validated();
+
+            if($request->hasFile('image'))
+            {
+                if ($news->image) {
+                    $oldImagePath = public_path('uploads/news/' . $news->image);
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath);
+                    }
+                }
+                $imageName = time() . '.' . $request->image->getClientOriginalName();  
+                $request->image->move(public_path('uploads/news'), $imageName);
+                $data['image'] = $imageName;
+            }
+
             $this->newsRepository->update($data);
             DB::commit();
 
@@ -102,5 +125,23 @@ class NewsController extends Controller
             DB::rollBack();
             return redirect()->back();
         }
+    }
+
+    public function removeImage($id)
+    {
+        $news = $this->newsRepository->getById($id);
+
+        if ($news && $news->image) {
+            $filePath = public_path('uploads/news/' . $news->image);
+
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+
+            $news->image = null; 
+            $news->save();
+        }
+
+        return response()->json(['success' => true]);
     }
 }
