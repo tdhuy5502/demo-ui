@@ -42,6 +42,14 @@ class HomeContentController extends Controller
         try {
             DB::beginTransaction();
             $data = $request->validated();
+
+            if($request->value)
+            {
+                $imageName = time() . '.' . $request->value->getClientOriginalName();  
+                $request->value->move(public_path('uploads/home-content'), $imageName);
+                $data['value'] = $imageName;
+            }
+
             $this->homeRepository->save($data);
             DB::commit();
 
@@ -74,8 +82,21 @@ class HomeContentController extends Controller
     public function update(UpdateHomeContentRequest $request)
     {
         try{
+            $homeContent = $this->homeRepository->getById($request->id);
             DB::beginTransaction();
             $data = $request->validated();
+            if($request->hasFile('value'))
+            {
+                if ($homeContent->value) {
+                    $oldImagePath = public_path('uploads/home-content/' . $homeContent->value);
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath);
+                    }
+                }
+                $imageName = time() . '.' . $request->value->getClientOriginalName();  
+                $request->value->move(public_path('uploads/home-content'), $imageName);
+                $data['value'] = $imageName;
+            }
             $this->homeRepository->update($data);
             DB::commit();
 
@@ -103,5 +124,23 @@ class HomeContentController extends Controller
             DB::rollBack();
             return redirect()->back();
         }
+    }
+
+    public function removeImage($id)
+    {
+        $homeContent = $this->homeRepository->getById($id);
+
+        if ($homeContent && $homeContent->value) {
+            $filePath = public_path('uploads/home-content/' . $homeContent->value);
+
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+
+            $homeContent->value = null; 
+            $homeContent->save();
+        }
+
+        return response()->json(['success' => true]);
     }
 }
