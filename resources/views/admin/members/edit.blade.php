@@ -47,6 +47,31 @@
                             <span class="text-danger">{{ $message }}</span>   
                         @enderror
                     </div>
+                    <div class="mt-3">
+                        <label class="text-dark" for="">Members avatar: </label>
+                        <label for="fileUpload" class="btn btn-primary">
+                            <i class="fa fa-upload"></i> Upload Image
+                        </label>
+                        <input name="avatar" type="file" id="fileUpload" style="display: none;" />
+                    </div>
+                    @if($member->avatar)
+                    <div id="existingImagePreview" class="card mt-3 col-md-2">
+                        <div class="card-body p-2" style="position: relative;">
+                            <img src="{{ asset('uploads/members/' . $member->avatar) }}" alt="Current Image" id="currentImage" class="card-img-top" style="max-height: 200px; border: 1px solid #ccc;" />
+                            <button type="button" id="removeCurrentImage" class="btn btn-danger btn-sm" style="position: absolute; top: 5px; right: 5px;">&times;</button>
+                        </div>
+                    </div>
+                    @endif
+                    <!-- New image preview -->
+                    <div id="newImagePreview" class="card mt-3 col-md-2" style="display: none;">
+                        <div class="card-body p-2" style="position: relative;">
+                            <img src="" id="previewImg" alt="New Image Preview" class="card-img-top" style="max-height: 200px; border: 1px solid #ccc;" />
+                            <button type="button" id="removeNewImage" class="btn btn-danger btn-sm" style="position: absolute; top: 5px; right: 5px;">&times;</button>
+                        </div>
+                    </div>
+                    @error('avatar')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
             </div>
 
@@ -58,4 +83,32 @@
         </form>
     </div>
 </div>
+@endsection
+@section('custom-scripts')
+<script>
+    $(document).ready(function () {
+        $('#fileUpload').on('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#previewImg').attr('src', e.target.result);
+                    $('#newImagePreview').show();
+                    $('#existingImagePreview').hide(); 
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        $('#removeCurrentImage').on('click', function () {
+            $('#existingImagePreview').hide();
+            $('#fileUpload').val('');
+        });
+        $('#removeNewImage').on('click', function () {
+            $('#fileUpload').val('');
+            $('#newImagePreview').hide();
+            $('#existingImagePreview').show();
+            $('#previewImg').attr('src', '');
+        });
+    });
+</script>
 @endsection
