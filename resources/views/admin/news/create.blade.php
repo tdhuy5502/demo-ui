@@ -41,6 +41,14 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                <div id="imagePreview" class="card mt-3" style="display: none; width: 220px;">
+                    <div class="card-body p-2" style="position: relative;">
+                        <img src="" id="previewImg" alt="Image Preview" class="card-img-top" style="max-height: 200px; border: 1px solid #ccc;" />
+                        <button type="button" id="removeImage" class="btn btn-danger btn-sm" style="position: absolute; top: 5px; right: 5px;">
+                            &times;
+                        </button>
+                    </div>
+                </div>
                 <hr>
                 <div>
                     <button class="btn btn-primary" type="submit">Save</button>
@@ -50,4 +58,30 @@
         </div>
     </div>
 </div>
+@endsection
+@section('custom-scripts')
+<script>
+    $(document).ready(function () {
+        $('#fileUpload').on('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#previewImg').attr('src', e.target.result);
+                    $('#imagePreview').show();
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        $('#removeImage').on('click', function () {
+            // Reset file input
+            $('#fileUpload').val('');
+            // Hide preview
+            $('#imagePreview').hide();
+            // Clear preview image source
+            $('#previewImg').attr('src', '');
+        });
+    });
+</script>
 @endsection

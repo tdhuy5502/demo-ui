@@ -26,7 +26,7 @@ class StoreNewsRequest extends FormRequest
             'title' => 'required|max:255',
             'content' => 'required',
             'subtitle' => 'sometimes|max:255',
-            'image' => 'nullable'
+            'image' => 'nullable|max:3072'
         ];
     }
 
