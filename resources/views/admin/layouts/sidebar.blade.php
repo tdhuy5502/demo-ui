@@ -19,7 +19,7 @@
     </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item active">
+    <!-- <li class="nav-item active">
         <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
             aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
@@ -32,7 +32,7 @@
                 <a class="collapse-item" href="register.html">Register</a>
             </div>
         </div>
-    </li>
+    </li> -->
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
@@ -49,7 +49,7 @@
 
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.members.index') }}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-fw fa-table"></i>
             <span>Members</span></a>
     </li>
 

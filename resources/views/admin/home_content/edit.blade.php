@@ -19,23 +19,23 @@
                     @enderror
                 </div>
                 <div>
-                    <label class="" for="">Home Content's Key: </label>
-                    <textarea value="" class="form-control" type="text" name="value" value="" rows="4" placeholder="Type contents here...">{{ old('value',$homeContent->value) }}</textarea>
+                    <label class="" for="">Home Content's Value: </label>
+                    <textarea value="" id="textContent" class="form-control" type="text" name="value" value="" rows="4" placeholder="Type contents here...">{{ old('value',$homeContent->value) }}</textarea>
                     @error('value')
                         <span class="text-danger">{{ $message }}</span>   
                     @enderror
                 </div>
                 <div class="mt-3">
-                    <label class="text-dark" for="">Members avatar: </label>
+                    <label class="text-dark" for="">Main content's image (optional): </label>
                     <label for="fileUpload" class="btn btn-primary">
                         <i class="fa fa-upload"></i> Upload Image
                     </label>
-                    <input name="avatar" type="file" id="fileUpload" style="display: none;" />
+                    <input name="value" type="file" id="fileUpload" style="display: none;" />
                 </div>
-                @if($homeContent->avatar)
+                @if (preg_match('/\.(jpg|jpeg|png|gif)$/i', $homeContent->value)) 
                 <div id="existingImagePreview" class="card mt-3 col-md-2">
                     <div class="card-body p-2" style="position: relative;">
-                        <img src="{{ asset('uploads/members/' . $homeContent->avatar) }}" alt="Current Image" id="currentImage" class="card-img-top" style="max-height: 200px; border: 1px solid #ccc;" />
+                        <img src="{{ asset('uploads/home-content/' . $homeContent->value) }}" alt="Current Image" id="currentImage" class="card-img-top" style="max-height: 200px; border: 1px solid #ccc;" />
                         <button type="button" id="removeCurrentImage" class="btn btn-danger btn-sm" style="position: absolute; top: 5px; right: 5px;">&times;</button>
                     </div>
                 </div>
@@ -88,7 +88,8 @@
                 reader.onload = function (e) {
                     $('#previewImg').attr('src', e.target.result);
                     $('#newImagePreview').show();
-                    $('#existingImagePreview').hide(); 
+                    $('#existingImagePreview').hide();
+                    $('#textContent').val('');
                 };
                 reader.readAsDataURL(file);
             }
@@ -112,6 +113,7 @@
                     if (response.success) {
                         $('#existingImagePreview').hide();
                         $('#fileUpload').val('');
+                        $('#textContent').val('');
                     }
                 },
                 error: function (xhr) {
