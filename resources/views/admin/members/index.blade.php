@@ -5,7 +5,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-6">
-                <h5>About Us Content</h5>
+                <h5>Members List</h5>
             </div>
             <div class="col-6 d-flex justify-content-end">
                 <div class="fl-right inline-blk">

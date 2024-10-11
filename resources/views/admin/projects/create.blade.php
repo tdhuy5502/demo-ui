@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body shadow">
             <h3 class="fw-bold">
-                Create
+                Create New Project
             </h3>
             <hr>
             <form action="{{ route('admin.projects.store') }}" method="post">
@@ -41,7 +41,7 @@
                 <hr>
                 <div>
                     <button class="btn btn-primary" type="submit">Save</button>
-                    <a href="" class="btn btn-dark">Cancel</a>
+                    <a href="{{ route('admin.projects.index') }}" class="btn btn-dark">Cancel</a>
                 </div>
             </form>
         </div>

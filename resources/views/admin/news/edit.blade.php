@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body shadow">
             <h3 class="fw-bold">
-                Update
+                Update News Post
             </h3>
             <hr>
             <form action="{{ route('admin.news.update',$news->id) }}" method="post">
@@ -60,7 +60,7 @@
                 <hr>
                 <div>
                     <button class="btn btn-primary" type="submit">Save</button>
-                    <a href="" class="btn btn-dark">Cancel</a>
+                    <a href="{{ route('admin.news.index') }}" class="btn btn-dark">Cancel</a>
                 </div>
             </form>
         </div>
