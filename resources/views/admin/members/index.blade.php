@@ -35,11 +35,16 @@
                     data: 'id', name: 'id',
                     orderable: false, 
                 },
+                { 
+                    "data": "avatar_url",
+                    "render": function(data, type, row) {
+                        return '<img src="' + data + '" alt="Avatar" width="50" height="50"/>';
+                    }
+                },
                 { data: 'name', name: 'name' },
                 { data: 'phone', name: 'phone' },
                 { data: 'email', name: 'email' },
-                { data: 'role_id', name: 'role_id' },
-                { data: 'avatar', name: 'avatar' },
+                { data: 'role_name', name: 'role_name' },
                 { 
                     data: 'id', 
                     name: 'action',

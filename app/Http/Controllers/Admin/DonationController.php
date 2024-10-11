@@ -20,7 +20,12 @@ class DonationController extends Controller
 
     public function getData()
     {
-        $donationList = $this->donationRepository->getAll();
+        $donationList = $this->donationRepository->getAll()->load('project');
+
+        $donationList = $donationList->map(function ($donation) {
+            $donation->project_name = $donation->project ? $donation->project->title : 'No Project';
+            return $donation;
+        });
 
         return datatables()->of($donationList)->make(true);
     }
