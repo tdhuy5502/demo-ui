@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body shadow">
             <h3 class="fw-bold">
-                Create
+                Create Home Content
             </h3>
             <hr>
             <form action="{{route('admin.home_content.store')}}" method="post" enctype="multipart/form-data">
@@ -46,7 +46,7 @@
                 <hr>
                 <div>
                     <button class="btn btn-primary" type="submit">Save</button>
-                    <a href="" class="btn btn-dark">Cancel</a>
+                    <a href="{{ route('admin.home_content.index') }}" class="btn btn-dark">Cancel</a>
                 </div>
             </form>
         </div>

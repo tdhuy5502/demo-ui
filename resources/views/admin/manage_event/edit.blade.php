@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body shadow">
             <h3 class="fw-bold">
-                Update
+                Update Event
             </h3>
             <hr>
             <form action="{{ route('admin.events.update',$event->id) }}" method="post">
@@ -44,7 +44,7 @@
                 <hr>
                 <div>
                     <button class="btn btn-primary" type="submit">Save</button>
-                    <a href="" class="btn btn-dark">Cancel</a>
+                    <a href="{{ route('admin.events.index') }}" class="btn btn-dark">Cancel</a>
                 </div>
             </form>
         </div>
