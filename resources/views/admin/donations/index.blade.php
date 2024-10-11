@@ -32,7 +32,7 @@
                     orderable: false, 
                 },
                 { data: 'donator_name', name: 'donator_name' },
-                { data: 'project_id', name: 'project_id' },
+                { data: 'project_name', name: 'project_id' },
                 { data: 'amount', name: 'amount' },
                 { data: 'message', name: 'message' },
                 { data: 'created_at', name: 'created_at' },

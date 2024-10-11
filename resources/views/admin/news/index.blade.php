@@ -29,6 +29,7 @@
         $('#news-table').DataTable({
             processing: true,
             serverSide: true,
+            responsive: true,
             ajax: "{{ route('admin.news.getData') }}",
             columns: [
                 { 

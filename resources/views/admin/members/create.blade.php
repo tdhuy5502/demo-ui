@@ -3,7 +3,7 @@
 @section('main')
 <div class="card">
     <div class="card-body shadow">
-        <h3 class="fw-bold">Create</h3>
+        <h3 class="fw-bold">Create New Member</h3>
         <hr>
         <form action="{{ route('admin.members.store') }}" method="post" enctype="multipart/form-data">
             @csrf
@@ -70,7 +70,7 @@
             <hr>
             <div>
                 <button class="btn btn-primary" type="submit">Save</button>
-                <a href="" class="btn btn-dark">Cancel</a>
+                <a href="{{ route('admin.members.index') }}" class="btn btn-dark">Cancel</a>
             </div>
         </form>
     </div>

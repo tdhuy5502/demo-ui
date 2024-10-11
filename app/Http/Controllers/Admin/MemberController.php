@@ -31,7 +31,23 @@ class MemberController extends Controller
 
     public function getData()
     {
-        $members = $this->memberRepository->getAll();
+        $members = $this->memberRepository->getAll()->load('role'); // get role
+
+        $defaultAvatar = asset('uploads/members/default-avatar.jpg');
+
+        $members = $members->map(function ($member) use ($defaultAvatar) {
+            $avatarPath = public_path('uploads/members/' . $member->avatar);
+
+            if (file_exists($avatarPath) && !empty($member->avatar)) {
+                $member->avatar_url = asset('uploads/members/' . $member->avatar);
+            } else {
+                $member->avatar_url = $defaultAvatar;
+            }
+
+            $member->role_name = $member->role ? $member->role->name : '';
+
+            return $member;
+        });
 
         return datatables()->of($members)->make(true);
     }

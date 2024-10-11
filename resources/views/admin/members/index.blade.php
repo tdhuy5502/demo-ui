@@ -5,7 +5,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-6">
-                <h5>About Us Content</h5>
+                <h5>Members List</h5>
             </div>
             <div class="col-6 d-flex justify-content-end">
                 <div class="fl-right inline-blk">
@@ -35,11 +35,16 @@
                     data: 'id', name: 'id',
                     orderable: false, 
                 },
+                { 
+                    "data": "avatar_url",
+                    "render": function(data, type, row) {
+                        return '<img src="' + data + '" alt="Avatar" width="50" height="50"/>';
+                    }
+                },
                 { data: 'name', name: 'name' },
                 { data: 'phone', name: 'phone' },
                 { data: 'email', name: 'email' },
-                { data: 'role_id', name: 'role_id' },
-                { data: 'avatar', name: 'avatar' },
+                { data: 'role_name', name: 'role_name' },
                 { 
                     data: 'id', 
                     name: 'action',
