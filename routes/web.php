@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\DonationController;
 use App\Http\Controllers\Admin\VolunnteerController;
 use App\Http\Controllers\Admin\HomeContentController;
+use App\Http\Controllers\Client\AboutUsClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +30,9 @@ Route::get('/', function () {
     return view('home.index');
 });
 
-Route::get('/about-us', function () {
+Route::get('/aboutUs', function () {
     return view('about-us.index');
-})->name('about-us');
+})->name('aboutUs');
 
 Route::get('/topnews', function () {
     return view('topnews.index');
@@ -199,5 +200,11 @@ Route::controller(HomeController::class)
 ->prefix('/home')
 ->as('home.')
 ->group(function(){
+    Route::get('','index')->name('index');
+});
+
+Route::controller(AboutUsClientController::class)
+->prefix('/about-us')
+->as('about-us.')->group(function(){
     Route::get('','index')->name('index');
 });

@@ -20,11 +20,11 @@
         <div class="row mb-4">
             <h5 class="">KNOW ABOUT US</h5>
             <div class="col-lg-5">
-                <h2>We are a nonprofit team working worldwide</h2>
+                <h2>{{ $aboutUsData['about-us-index-main-title'] }}</h2>
             </div>
             <div class="col-lg-6">
-                <h5>Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+                <h5>{{ $aboutUsData['about-us-index-subtitle'] }}</h5>
+                <p>{{ $aboutUsData['about-us-content'] }}</p>
             </div>
         </div>
 
@@ -39,12 +39,12 @@
                     <div class="row">
                         <div class="mission col-md-6">
                             <h5>OUR MISSION</h5>
-                            <h4 class="fw-bold col-7">We make the world we save our own environment</h4>
+                            <h4 class="fw-bold col-7">{{ $aboutUsData['about-us-mission-title'] }}</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
                         </div>
                         <div class="vision col-md-6">
                             <h5>OUR VISION</h5>
-                            <h4 class="fw-bold col-7">Plant more trees to make world air pollution free</h4>
+                            <h4 class="fw-bold col-7">{{ $aboutUsData['about-us-vision-title'] }}</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
                         </div>
                     </div>
@@ -107,11 +107,11 @@
         <div class="row">
             <div class="col-md-6 ">
                 <h6>OUR JOURNEY</h6>
-                <h3 class="fw-bold">How we raised 34M</h3>
-                <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh.</p>
-                <p><strong>34M+</strong> Donations received</p>
-                <p><strong>400+</strong> Team members</p>
-                <p><strong>40k+</strong> Volunteers worldwide</p>
+                <h3 class="fw-bold">{{ $aboutUsData['about-us-journey'] }}</h3>
+                <p class="mt-4">{{ $aboutUsData['about-us-journey-content'] }}</p>
+                <p><strong>{{ $donatorCount }}M+</strong> Donations received</p>
+                <p><strong>{{ $membersCount }}+</strong> Team members</p>
+                <p><strong>{{ $volunteersCount }}k+</strong> Volunteers worldwide</p>
             </div>
             <div class="col-md-6">
                 <img src="{{ asset('assets/journey_image.png') }}" class="img-fluid" alt="Our Journey">
@@ -128,46 +128,13 @@
             <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
         </div>
         <div class="row text-center">
+            @foreach ($members as $member)
             <div class="col-md-3 mb-4">
                 <img src="{{ asset('assets/team_member2.png') }}" class="img-fluid team-img" alt="Team Member">
-                <h6 class="fw-bold">Leonard John Davies</h6>
-                <p>Co-founder, CEO</p>
+                <h6 class="fw-bold">{{ $member->name }}</h6>
+                <p>{{ $member->role->name }}</p>
             </div>
-            <div class="col-md-3 mb-4">
-                <img src="{{ asset('assets/team_member2.png') }}" class="img-fluid team-img" alt="Team Member">
-                <h6 class="fw-bold">Francis Weber</h6>
-                <p>Head of Marketing</p>
-            </div>
-            <div class="col-md-3 mb-4">
-                <img src="{{ asset('assets/team_member2.png') }}" class="img-fluid team-img" alt="Team Member">
-                <h6 class="fw-bold">Kyla Obrien</h6>
-                <p>Head of HR</p>
-            </div>
-            <div class="col-md-3 mb-4">
-                <img src="{{ asset('assets/team_member2.png') }}" class="img-fluid team-img" alt="Team Member">
-                <h6 class="fw-bold">Adrian Dixon</h6>
-                <p>Support Executive</p>
-            </div>
-            <div class="col-md-3 mb-4">
-                <img src="{{ asset('assets/team_member2.png') }}" class="img-fluid team-img" alt="Team Member">
-                <h6 class="fw-bold">Leonard John Davies</h6>
-                <p>Co-founder, CEO</p>
-            </div>
-            <div class="col-md-3 mb-4">
-                <img src="{{ asset('assets/team_member2.png') }}" class="img-fluid team-img" alt="Team Member">
-                <h6 class="fw-bold">Francis Weber</h6>
-                <p>Head of Marketing</p>
-            </div>
-            <div class="col-md-3 mb-4">
-                <img src="{{ asset('assets/team_member2.png') }}" class="img-fluid team-img" alt="Team Member">
-                <h6 class="fw-bold">Kyla Obrien</h6>
-                <p>Head of HR</p>
-            </div>
-            <div class="col-md-3 mb-4">
-                <img src="{{ asset('assets/team_member2.png') }}" class="img-fluid team-img" alt="Team Member">
-                <h6 class="fw-bold">Adrian Dixon</h6>
-                <p>Support Executive</p>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -191,43 +158,17 @@
     <div class="container">
       <h2 class="fw-bold">Read Our News</h2>
       <div class="row mt-5">
-        <div class="col-md-3">
-          <div class="card">
-            <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title-news">Don't destroy greenery</h5>
-              <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
-            </div>
-          </div>
-        </div>
+        @foreach($news as $new)
         <div class="col-md-3">
             <div class="card">
               <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title-news">Don't destroy greenery</h5>
-                <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
+                <h5 class="card-title-news">{{ $new->title }}</h5>
+                <p class="card-text-news">{{ $new->content }}</p>
               </div>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-              <div class="card-body">
-                <h5 class="card-title-news">Don't destroy greenery</h5>
-                <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="card">
-              <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-              <div class="card-body">
-                <h5 class="card-title-news">Don't destroy greenery</h5>
-                <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
-              </div>
-            </div>
-          </div>
+        @endforeach
       </div>
     </div>
   </section>
@@ -237,24 +178,17 @@
         <div class="container">
           <h2 class="fw-bold">Our Events</h2>
           <div class="row mt-4">
-
-            <div class="col-md-6">
-              <div class="card event-section">
-                <div class="card-body">
-                  <h3>23 Sep</h3>
-                  <h5>Say no to plastic usage</h5>
-                </div>
-              </div>
-            </div>
             <!-- Sự kiện khác -->
-            <div class="col-md-6">
+            @foreach($events as $event)
+            <div class="col-md-6 mt-3">
                 <div class="card event-section">
                   <div class="card-body">
-                    <h3>23 Sep</h3>
-                    <h5>Say no to plastic usage</h5>
+                    <h3>{{ $event->event_date }}</h3>
+                    <h5>{{ $event->name }}</h5>
                   </div>
                 </div>
             </div>
+            @endforeach
           </div>
         </div>
       </section>
