@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Admin\HomeContent;
 
+use App\Models\HomeContent;
+use Closure;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreHomeContentRequest extends FormRequest
@@ -23,7 +25,16 @@ class StoreHomeContentRequest extends FormRequest
     {
         return [
             //
-            'key' => 'required',
+            'key' => [
+                'required',
+                function (string $value, $attribute, Closure $fail)
+                {
+                    $keyName = HomeContent::where('key','=',$value)->pluck('key')->first();
+                    if ($value === $keyName) {
+                        $fail("The {$attribute} is already in use.");
+                    }
+                }
+            ],
             'value' => 'required'
         ];
     }

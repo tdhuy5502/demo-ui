@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests\Admin\Member;
 
+use Closure;
+use App\Models\Member;
 use Illuminate\Validation\Rule;
+use Symfony\Component\Console\Input\Input;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreMemberRequest extends FormRequest
@@ -23,8 +26,18 @@ class StoreMemberRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
-            'name' => 'required',
+            //if count > 0 -> exists
+            // Eloquent laravel & validation
+
+            'name' => [
+                'required',
+                function (string $attribute, mixed $value, Closure $fail) {
+                    $name = Member::where('name', '=', $value)->pluck('name')->first();
+                    if ($value === $name) {
+                        $fail("The {$attribute} is invalid.");
+                    }
+                },
+            ],
             'phone' => [
                 'required',
                 'min:10','max:15',
@@ -46,18 +59,5 @@ class StoreMemberRequest extends FormRequest
         ];
     }
 
-    public function messages()
-    {
-        return [
-            'name' => 'Please enter member`s name ',
-            'phone.required' => 'Please enter phone numbers',
-            'phone.min' => 'Invalid phone numbers length',
-            'phone.max' => 'Invalid phone numbers length',
-            'phone.regex' => 'Invalid phone numbers format',
-            'phone.unique' => 'Phone numbers already in use',
-            'email.required' => 'Please enter email',
-            'email.regex' => 'Invalid email format',
-            'email.unique' => 'This email already in use'
-        ];
-    }
+   
 }
