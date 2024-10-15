@@ -9,7 +9,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('about-us') }}">About us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('aboutUs') }}">About us</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('whatwedo') }}">What We Do</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('topnews') }}">Media</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
