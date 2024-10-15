@@ -1,17 +1,18 @@
 <?php
 
-use App\Http\Controllers\Admin\AboutUsController;
-use App\Http\Controllers\Admin\DonationController;
-use App\Http\Controllers\Admin\EventController;
-use App\Http\Controllers\Admin\HomeContentController;
-use App\Http\Controllers\Admin\MemberController;
-use App\Http\Controllers\Admin\NewsController;
-use App\Http\Controllers\Admin\ProjectController;
-use App\Http\Controllers\Admin\VolunnteerController;
-use App\Http\Controllers\AdminLoginController;
-use App\Http\Controllers\UIController;
 use App\Models\Donation;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UIController;
+use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Admin\MemberController;
+use App\Http\Controllers\Admin\AboutUsController;
+use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\DonationController;
+use App\Http\Controllers\Admin\VolunnteerController;
+use App\Http\Controllers\Admin\HomeContentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -192,4 +193,11 @@ Route::controller(UIController::class)
     Route::get('project','project')->name('project');
     Route::get('about_us','aboutUs')->name('about_us');
     Route::get('contact','contact')->name('contact');
+});
+
+Route::controller(HomeController::class)
+->prefix('/home')
+->as('home.')
+->group(function(){
+    Route::get('','index')->name('index');
 });

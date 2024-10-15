@@ -43,7 +43,7 @@ class HomeContentController extends Controller
             DB::beginTransaction();
             $data = $request->validated();
 
-            if($request->value)
+            if($request->hasFile('value'))
             {
                 $imageName = time() . '.' . $request->value->getClientOriginalName();  
                 $request->value->move(public_path('uploads/home-content'), $imageName);
@@ -57,6 +57,7 @@ class HomeContentController extends Controller
         }
         catch(Exception $e)
         {
+            $this->logError($e);
             DB::rollBack();
             return redirect()->route('admin.home_content.create');
         }

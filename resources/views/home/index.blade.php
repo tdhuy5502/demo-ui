@@ -16,7 +16,7 @@
     <section class="hero-section position-relative text-white align-items-start">
         <img src="{{asset('assets/BG Image.png')}}" class="img-fluid w-100" alt="Hero Image" style="object-fit: cover;">
         <div class="container">
-            <h1 class="col-5 hero-text">Save the environment today for a better tomorrow</h1>
+            <h1 class="col-5 hero-text">{{ $homeContent['home-title'] }}</h1>
             <a href="#" class="btn btn-seemore mt-3">Play Video</a>
         </div>
     </section>
@@ -27,8 +27,8 @@
             <div class="row">
                 <div class="col-md-6 mt-5">
                     <h6 class="fw-bold">KNOW ABOUT US</h6>
-                    <h2 class="fw-bold">We help nature smile and survive everywhere</h2>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent volutpat nisl quis mauris volutpat venenatis.</p>
+                    <h2 class="fw-bold">{{ $homeContent['about-us-title'] }}</h2>
+                    <p class="text-muted">{{ $homeContent['about-us-subtitle'] }}</p>
                     <a href="#" class="btn btn-success">Learn More</a>
                 </div>
                 <div class="col-md-6">
@@ -112,17 +112,19 @@
             <h5>PROJECTS WE HAS DONE</h5>
               <h2 class="py-5">We are creating a sustainable society, for everyone.</h2>
             <div class="row">
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="{{ asset('assets/mission40K.png') }}" alt="Project Image" class="card-img-top">
-                  <div class="card-body card-img-overlay">
-                    <h5 class="card-title">Mission 40K: Tree plantation</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-                    <a href="#" class="btn btn-seemore">See more</a>
+              @foreach ($projects as $project)
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="{{ asset('assets/mission40K.png') }}" alt="Project Image" class="card-img-top">
+                    <div class="card-body card-img-overlay">
+                      <h5 class="card-title">{{ $project->title }}</h5>
+                      <p class="card-text">{{ $project->content }}</p>
+                      <a href="#" class="btn btn-seemore">See more</a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-4">
+              @endforeach
+              {{-- <div class="col-md-4">
                 <div class="card">
                   <img src="{{ asset('assets/weekly_cleann.png') }}" alt="Project Image" class="card-img-top">
                   <div class="card-body card-img-overlay">
@@ -141,7 +143,7 @@
                     <a href="#" class="btn btn-seemore">See more</a>
                   </div>
                 </div>
-              </div>
+              </div> --}}
             </div>
           </div>
     </section>
@@ -166,43 +168,17 @@
         <div class="container">
           <h2 class="fw-bold">Read Our News</h2>
           <div class="row mt-5">
-            <div class="col-md-3">
-              <div class="card">
-                <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title-news">Don't destroy greenery</h5>
-                  <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                  <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-                  <div class="card-body">
-                    <h5 class="card-title-news">Don't destroy greenery</h5>
-                    <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
-                  </div>
-                </div>
-              </div>
+            @foreach($news as $new)
               <div class="col-md-3">
                 <div class="card">
                   <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
                   <div class="card-body">
-                    <h5 class="card-title-news">Don't destroy greenery</h5>
-                    <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
+                    <h5 class="card-title-news">{{ $new->title }}</h5>
+                    <p class="card-text-news">{{ $new->content }}</p>
                   </div>
                 </div>
               </div>
-    
-              <div class="col-md-3">
-                <div class="card">
-                  <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-                  <div class="card-body">
-                    <h5 class="card-title-news">Don't destroy greenery</h5>
-                    <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
-                  </div>
-                </div>
-              </div>
+            @endforeach
           </div>
         </div>
       </section>
@@ -212,23 +188,17 @@
             <div class="container text-center">
               <h2 class="fw-bold">Our Events</h2>
               <div class="row mt-4">
+              <!-- Sự kiện khác -->
+              @foreach($events as $event)
                 <div class="col-md-6">
-                  <div class="card event-section">
+                  <div class="card event-section mt-3">
                     <div class="card-body">
-                      <h3>23 Sep</h3>
-                      <h5>Say no to plastic usage</h5>
+                      <h3>{{ $event->event_date }}</h3>
+                      <h5>{{ $event->name }}</h5>
                     </div>
                   </div>
                 </div>
-                <!-- Sự kiện khác -->
-                <div class="col-md-6">
-                    <div class="card event-section">
-                      <div class="card-body">
-                        <h3>23 Sep</h3>
-                        <h5>Say no to plastic usage</h5>
-                      </div>
-                    </div>
-                  </div>
+              @endforeach
               </div>
             </div>
           </section>
