@@ -28,7 +28,7 @@ class NewsClientController extends Controller
     public function index()
     {   
         $lastestNews = $this->newsRepository->getLatestNews();
-        $allNews = $this->newsRepository->getAll();
+        $allNews = $this->newsRepository->getRelatedNews();
         $events = $this->eventRepository->getAll();
         $homeContent = $this->homeRepository->getData();
        

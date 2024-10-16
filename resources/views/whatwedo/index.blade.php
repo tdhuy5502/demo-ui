@@ -146,43 +146,17 @@
     <div class="container">
       <h2 class="text-center">Read Our News</h2>
       <div class="row">
+        @foreach ($news as $newsItem)
         <div class="col-md-3">
           <div class="card">
             <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">Don't destroy greenery</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet...</p>
+              <a href="{{route('news-details.show',$newsItem->id)}}" class="nav-link fw-bold fs-5 card-title">{{ $newsItem->title }}</a>
+              <p class="text-dark">{{ $newsItem->subtitle }}</p>
             </div>
           </div>
         </div>
-        <div class="col-md-3">
-            <div class="card">
-              <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-              <div class="card-body">
-                <h5 class="card-title">Don't destroy greenery</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet...</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-              <div class="card-body">
-                <h5 class="card-title">Don't destroy greenery</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet...</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="card">
-              <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-              <div class="card-body">
-                <h5 class="card-title">Don't destroy greenery</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet...</p>
-              </div>
-            </div>
-          </div>
+        @endforeach
       </div>
     </div>
   </section>
