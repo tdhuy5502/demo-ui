@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\HomeContentController;
 use App\Http\Controllers\Client\NewsClientController;
 use App\Http\Controllers\Client\AboutUsClientController;
 use App\Http\Controllers\Client\DonationClientConntroller;
+use App\Http\Controllers\Client\ProjectPostController;
 use App\Http\Controllers\Client\WhatWeDoController;
 
 /*
@@ -232,4 +233,12 @@ Route::controller(DonationClientConntroller::class)
     Route::get('','index')->name('index');
     Route::get('create','create')->name('create');
     Route::post('store','store')->name('store');
+});
+
+Route::controller(ProjectPostController::class)
+->prefix('/project-post')
+->as('project-post.')
+->group(function(){
+    Route::get('','index')->name('index');
+    Route::get('/show/{id}','show')->name('show');
 });
