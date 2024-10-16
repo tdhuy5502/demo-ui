@@ -33,7 +33,7 @@ class HomeController extends Controller
     {
         $homeContent = $this->homeClientRepository->getData();
         $projects = $this->projectRepository->getAll();
-        $news = $this->newsRepository->getAll();
+        $news = $this->newsRepository->getRelatedNews();
         $events = $this->eventRepository->getAll();
         
         return view('home.index')->with([

@@ -45,7 +45,7 @@
                 <div class="card">
                   <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
                   <div class="card-body">
-                    <h5 class="card-title-news font-bold">{{ $new->title }}</h5>
+                    <a href="{{ route('news-details.show',$new->id)}}" class="fs-bold fw-bold nav-link card-title-news font-bold">{{ $new->title }}</a>
                     <p class="card-text-news">{{ $new->subtitle }}</p>
                   </div>
                 </div>
