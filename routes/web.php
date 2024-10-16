@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\VolunnteerController;
 use App\Http\Controllers\Admin\HomeContentController;
 use App\Http\Controllers\Client\NewsClientController;
 use App\Http\Controllers\Client\AboutUsClientController;
+use App\Http\Controllers\Client\DonationClientConntroller;
 use App\Http\Controllers\Client\WhatWeDoController;
 
 /*
@@ -222,4 +223,13 @@ Route::controller(WhatWeDoController::class)
 ->as('what-we-do.')
 ->group(function(){
     Route::get('','index')->name('index');
+});
+
+Route::controller(DonationClientConntroller::class)
+->prefix('/donation')
+->as('donation.')
+->group(function(){
+    Route::get('','index')->name('index');
+    Route::get('create','create')->name('create');
+    Route::post('store','store')->name('store');
 });

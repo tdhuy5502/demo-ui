@@ -19,8 +19,8 @@
         <div class="row align-items-center p-5">
             <div class="col-md-6">
                 <h6 class="text-uppercase fw-bold">Donate</h6>
-                <h1 class="fw-bold">Making a donation for Nature.</h1>
-                <p class="text-muted">When you donate, you're supporting effective solutions to big environmental challenges—an investment in the future of our planet.</p>
+                <h1 class="fw-bold">{{ $homeTitle['donate-home-banner'] ?? 'Making a donation for Nature.' }}</h1>
+                <p class="text-muted">{{ $homeTitle['donate-home-subtitle'] ?? "When you donate, you're supporting effective solutions to big environmental challenges—an investment in the future of our planet."}}</p>
                 <a href="#" class="btn btn-success">Donate now</a>
             </div>
             <div class="col-md-6 mt-4">
@@ -35,8 +35,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h2 class="fw-bold">How you can contribute to protect Earth</h2>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+                <h2 class="fw-bold">{{ $homeTitle['donate-subbanner'] ?? 'How you can contribute to protect Earth'}}</h2>
+                <p class="text-muted">{{ $homeTitle['donate-subcontent'] ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.' }}</p>
             </div>
             <div class="col-md-6">
                 <ul class="nav nav-tabs mt-4" id="contributeTab" role="tablist">
@@ -52,13 +52,13 @@
                 </ul>
                 <div class="tab-content mt-3" id="contributeTabContent">
                     <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
-                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.</p>
+                        <p class="text-muted">{{ $homeTitle['donate-overview'] ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.' }}</p>
                     </div>
                     <div class="tab-pane fade" id="impact" role="tabpanel" aria-labelledby="impact-tab">
-                        <p class="text-muted">Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+                        <p class="text-muted">{{ $homeTitle['donate-impact'] ?? 'Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.'}}</p>
                     </div>
                     <div class="tab-pane fade" id="get" role="tabpanel" aria-labelledby="get-tab">
-                        <p class="text-muted">Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+                        <p class="text-muted">{{ $homeTitle['donate-what-you-get'] ?? 'Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.' }}</p>
                     </div>
                 </div>
             </div>
@@ -71,12 +71,12 @@
 <section class="use-donation-section py-5">
     <div class="container">
         <div class="row">
-            <h2 class="fw-bold col-md-4">How we use your donation</h2>
+            <h2 class="fw-bold col-md-4">{{ $homeTitle['donate-use'] ?? 'How we use your donation' }}</h2>
             <div class="col-md-4">
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.  Nunc ut sem vitae risus tristique posuere.</p>
+                <p class="text-muted">{{ $homeTitle['donate-use-content1'] ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.  Nunc ut sem vitae risus tristique posuere.' }}</p>
             </div>
             <div class="col-md-4">
-                <p class="text-muted">Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet.</p>
+                <p class="text-muted">{{ $homeTitle['donate-use-content2'] ?? 'Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet.' }}</p>
             </div>
         </div>
     </div>
