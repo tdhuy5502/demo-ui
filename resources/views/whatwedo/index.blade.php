@@ -21,8 +21,8 @@
       <div class="row mx-5">
         <div class="col-sm-5">
             <h5>WHAT WE DO</h5>
-          <h2>We are working worldwide</h2>
-          <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+          <h2>{{ $homeTitle['what-we-do-main-title'] }}</h2>
+          <p class="">{{ $homeTitle['what-we-do-main-subtitle'] }}</p>
           </div>
           <div class="col-sm-5 mx-5">
             <img src="{{ asset('assets/header-image-whatwedo.png') }}" alt="Intro Image" class="img-fluid">
