@@ -16,32 +16,20 @@
     <!-- Top News Section -->
     <section class="top-news-section">
         <div class="news-content">
-            <h2>Our goal is to make water available for everyone</h2>
-            <p>Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
+            <h2>{{ $homeContent['news-index-title'] }}</h2>
+            <p>{{ $homeContent['news-index-content'] }}</p>
             <a href="#" class="btn-read-more">Read more</a>
         </div>
         <div class="news-list">
-            <div class="news-item">
-                <img src="{{ asset('assets/dog.png') }}" alt="News 1">
-                <div>
-                    <h4>Don't destroy greenery and don't spoil scenery.</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
-                </div>
+          @foreach ($latestNews as $news)
+          <div class="news-item">
+            <img src="{{ asset('assets/dog.png') }}" alt="News 1">
+            <div>
+                <h4>{{ $news->title }}</h4>
+                <p>{{ $news->subtitle }}</p>
             </div>
-            <div class="news-item">
-                <img src="{{ asset('assets/dog.png') }}" alt="News 2">
-                <div>
-                    <h4>Why saving wildlife is extremely important</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
-                </div>
-            </div>
-            <div class="news-item">
-                <img src="{{ asset('assets/dog.png') }}" alt="News 3">
-                <div>
-                    <h4>Caring for the present is caring for the future</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
-                </div>
-            </div>
+          </div>
+          @endforeach
         </div>
     </section>
 
@@ -51,43 +39,18 @@
           <h2 class="fw-bold">Read Our News</h2>
           <p class="text-muted">Edit this text to make it your own. To edit, simply click directly on the text to start We are served</p>
           <div class="row mt-5">
-            <div class="col-md-3">
-              <div class="card">
-                <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title-news">Don't destroy greenery</h5>
-                  <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                  <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-                  <div class="card-body">
-                    <h5 class="card-title-news">Don't destroy greenery</h5>
-                    <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
-                  </div>
-                </div>
-              </div>
+           
+            @foreach($allNews as $new)
               <div class="col-md-3">
                 <div class="card">
                   <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
                   <div class="card-body">
-                    <h5 class="card-title-news">Don't destroy greenery</h5>
-                    <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
+                    <h5 class="card-title-news font-bold">{{ $new->title }}</h5>
+                    <p class="card-text-news">{{ $new->subtitle }}</p>
                   </div>
                 </div>
               </div>
-    
-              <div class="col-md-3">
-                <div class="card">
-                  <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-                  <div class="card-body">
-                    <h5 class="card-title-news">Don't destroy greenery</h5>
-                    <p class="card-text-news">Lorem ipsum dolor sit amet...</p>
-                  </div>
-                </div>
-              </div>
+            @endforeach
           </div>
         </div>
       </section>
@@ -96,25 +59,18 @@
         <section class="section-events py-5">
             <div class="container">
               <h2 class="fw-bold">Our Events</h2>
-              <div class="row mt-4">
-    
-                <div class="col-md-6">
+              <div class="row mt-4">            
+                <!-- Sự kiện khác -->
+                @foreach ($events as $event)
+                <div class="col-md-6 mt-3">
                   <div class="card event-section">
                     <div class="card-body">
-                      <h3>23 Sep</h3>
-                      <h5>Say no to plastic usage</h5>
+                      <h3>{{ $event->event_date }}</h3>
+                      <h5>{{ $event->name }}</h5>
                     </div>
                   </div>
                 </div>
-                <!-- Sự kiện khác -->
-                <div class="col-md-6">
-                    <div class="card event-section">
-                      <div class="card-body">
-                        <h3>23 Sep</h3>
-                        <h5>Say no to plastic usage</h5>
-                      </div>
-                    </div>
-                </div>
+                @endforeach
               </div>
             </div>
           </section>

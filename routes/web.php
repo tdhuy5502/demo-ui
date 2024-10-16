@@ -13,7 +13,9 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\DonationController;
 use App\Http\Controllers\Admin\VolunnteerController;
 use App\Http\Controllers\Admin\HomeContentController;
+use App\Http\Controllers\Client\NewsClientController;
 use App\Http\Controllers\Client\AboutUsClientController;
+use App\Http\Controllers\Client\WhatWeDoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -206,5 +208,18 @@ Route::controller(HomeController::class)
 Route::controller(AboutUsClientController::class)
 ->prefix('/about-us')
 ->as('about-us.')->group(function(){
+    Route::get('','index')->name('index');
+});
+
+Route::controller(NewsClientController::class)
+->prefix('/top-news')
+->as('top-news.')->group(function(){
+    Route::get('','index')->name('index');
+});
+
+Route::controller(WhatWeDoController::class)
+->prefix('/what-we-do')
+->as('what-we-do.')
+->group(function(){
     Route::get('','index')->name('index');
 });
