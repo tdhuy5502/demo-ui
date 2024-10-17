@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Client;
 
 use Exception;
 use Illuminate\Http\Request;
+use App\Mail\SendContactMail;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use App\Repositories\Contact\ContactRepository;
 use App\Http\Requests\Admin\Contact\StoreContactRequest;
 
@@ -21,20 +23,18 @@ class ClientContactController extends Controller
 
     public function store(StoreContactRequest $request)
     {
-        try
-        {
+        
+        
             DB::beginTransaction();
             $contact = $request->validated();
             $this->contactRepository->create($contact);
+
+            Mail::to($contact['email'])->send(new SendContactMail($contact));
+
             DB::commit();
 
             return redirect()->route('contact')->with('success','We will reply you soon');
-        }
-        catch(Exception $e)
-        {
-            $this->logError($e);
-            DB::rollBack();
-            return redirect()->route('contact');
-        }
+        
+        
     }
 }
