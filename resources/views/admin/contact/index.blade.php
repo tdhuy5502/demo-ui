@@ -5,7 +5,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-6">
-                <h5>Volunteers List</h5>
+                <h5>Contacts List</h5>
             </div>
             <div class="col-6 d-flex justify-content-end">
                 <div class="fl-right inline-blk">
@@ -14,7 +14,7 @@
         </div>
         <hr />
         <div class="container">
-            @include('admin.volunteers.elements.datatable')
+            @include('admin.contact.elements.datatable')
         </div>
     </div>
 </div>
@@ -22,10 +22,10 @@
 @section('custom-scripts')
 <script>
     $(document).ready(function() {
-        $('#volunteers-table').DataTable({
+        $('#contacts-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('admin.volunteers.getData') }}",
+            ajax: "{{ route('admin.contacts.getData') }}",
             columns: [
                 { 
                     data: 'id', name: 'id',
@@ -34,6 +34,7 @@
                 { data: 'first_name', name: 'first_name' },
                 { data: 'last_name', name: 'last_name' },
                 { data: 'email', name: 'email' },
+                { data: 'subject' , name: 'subject' },
                 { data: 'message', name: 'message' },
                 { data: 'created_at', name: 'created_at' },
                 { 
@@ -41,8 +42,8 @@
                     name: 'action',
                     render: function(data, type, row, meta) {
                         return `
-                            <a href="/admin/volunteers/show/${data}" class="/btn btn-sm btn-primary">Edit</a>
-                            <form action="{{ route('admin.volunteers.delete', 'data') }}" method="POST" style="display:inline;">
+                            <a href="/admin/contacts/show/${data}" class="/btn btn-sm btn-primary">Edit</a>
+                            <form action="{{ route('admin.contacts.delete', 'data') }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <input type="hidden" name="id" value="${data}">
