@@ -9,12 +9,14 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\AboutUsController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\DonationController;
 use App\Http\Controllers\Admin\VolunnteerController;
 use App\Http\Controllers\Admin\HomeContentController;
 use App\Http\Controllers\Client\NewsClientController;
 use App\Http\Controllers\Client\AboutUsClientController;
+use App\Http\Controllers\Client\ClientContactController;
 use App\Http\Controllers\Client\DonationClientConntroller;
 use App\Http\Controllers\Client\NewsFeedController;
 use App\Http\Controllers\Client\ProjectPostController;
@@ -189,6 +191,17 @@ Route::middleware(['checkAdminLogin'])
         Route::post('/{id}/update','update')->name('update');
         Route::delete('{id}','destroy')->name('delete');
     });
+
+    Route::controller(ContactController::class)
+    ->prefix('/contacts')
+    ->as('contacts.')
+    ->group(function(){
+        Route::get('','index')->name('index');
+        Route::get('getData','getData')->name('getData');
+        Route::get('/show/{id}','show')->name('show');
+        Route::post('/{id}/update','update')->name('update');
+        Route::delete('{id}','destroy')->name('delete');
+    });
 });
 
 Route::controller(UIController::class)
@@ -249,4 +262,10 @@ Route::controller(NewsFeedController::class)
 ->as('news-details.')->group(function(){
     Route::get('','index')->name('index');
     Route::get('/show/{id}','show')->name('show');
+});
+
+Route::controller(ClientContactController::class)
+->prefix('get-contacts')
+->as('get-contacts.')->group(function(){
+    Route::post('store','store')->name('store');
 });

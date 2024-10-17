@@ -42,7 +42,7 @@
                     render: function(data, type, row, meta) {
                         return `
                             
-                            <form action="{{ route('admin.members.delete', 'data') }}" method="POST" style="display:inline;">
+                            <form action="{{ route('admin.donations.delete', 'data') }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <input type="hidden" name="id" value="${data}">
