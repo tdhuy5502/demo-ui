@@ -15,6 +15,12 @@ class Volunteer extends Model
         'first_name',
         'last_name',
         'email',
+        'project_id',
         'message',
     ];
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class,'project_id','id');
+    }
 }

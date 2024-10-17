@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\Donation;
+use App\Models\Volunteer;
 use App\Observers\DonationObserver;
+use App\Observers\ProjectMemObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,5 +25,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Donation::observe(DonationObserver::class);
+        Volunteer::observe(ProjectMemObserver::class);
     }
 }

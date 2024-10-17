@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Client\VolunteerClientController;
 use App\Models\Donation;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UIController;
@@ -267,5 +268,12 @@ Route::controller(NewsFeedController::class)
 Route::controller(ClientContactController::class)
 ->prefix('get-contacts')
 ->as('get-contacts.')->group(function(){
+    Route::post('store','store')->name('store');
+});
+
+Route::controller(VolunteerClientController::class)
+->prefix('/join-volunteer')
+->as('join-volunteer.')->group(function(){
+    Route::get('','create')->name('join');
     Route::post('store','store')->name('store');
 });
