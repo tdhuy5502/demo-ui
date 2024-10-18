@@ -58,30 +58,40 @@
       </section>
     
       <!-- Events Section -->
-        <section class="section-events">
-            <div class="container">
-              <h2 class="fw-bold">Our Events</h2>
-              <div class="row mt-4">            
-                <!-- Sự kiện khác -->
-                @foreach ($events as $event)
-                  @php
-                    $date = \Carbon\Carbon::parse($event->event_date);
-                  @endphp
-                  <div class="col-md-6 mt-3">
-                    <a href="{{ route('event-details.show',$event->id) }}" class="nav-link display-flex">
-                      <div class="card event-section">
-                        <div class="card-body">
-                          <h3>{{ 'Day: ' . $date->format('d') }}</h3>
-                          <h5>{{ 'Month: ' . $date->format('m') }}</h5>
-                          <h5 class="fw-bold">{{ $event->name }}</h5>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                @endforeach
-              </div>
+      <section class="other-events">
+        <div class="container py-4 col-md-7">
+            <div class="row">
+                <div class="col-4">
+                    <h2 class="fw-bold">Other events</h2>
+                </div>
+                <div class="col-8 mt-2">
+                    <hr>
+                </div>
             </div>
-          </section>
+        </div>
+        <div class="container col-md-7">
+            @foreach ($events as $event)
+            <a href="{{ route('event-details.show',$event->id) }}" class="nav-link">
+                <div class="event-card">
+                    @php
+                        $date = \Carbon\Carbon::parse($event->event_date);
+                    @endphp
+                    <div class="event-date">
+                        <span class="day">{{ $date->format('d') }}</span>
+                        <span class="month">{{ $date->format('m') }}</span>
+                    </div>
+                    <div class="event-details">
+                        <span class="event-label">Next Events</span>
+                        <h3>{{ $event->name }}</h3>
+                    </div>
+                    <div class="event-arrow">
+                        <button class="arrow-button">→</button>
+                    </div>
+                </div>
+            </a>
+            @endforeach
+        </div>
+    </section>
     
       <!-- Footer -->
       @include('components.footer')

@@ -24,23 +24,35 @@
                         <div class="col-md-7 mt-3">
                             <label class="fs-6 fw-bold text-dark" for="">Your Name:</label>
                             <input name="donator_name" type="text" class="form-control" placeholder="Your name">
+                            @error('donator_name')
+                                <span class="text-danger">{{ $message }}</span>   
+                            @enderror
                         </div>
                         <div class="col-md-7 mt-3">
                             <label class="fs-6 fw-bold text-dark" for="">Project:</label>
                             <select name="project_id" id="" class="form-select">
                                 <option value="">Choose a project to donate</option>
                                 @foreach ($projects as $project)
-                                    <option value="{{ $project->id }}">{{ $project->title }}</option>
+                                    <option value="{{ $project->id }}" {{ old('project_id') == $project->id ? 'selected' : '' }}>{{ $project->title }}</option>
                                 @endforeach
                             </select>
+                            @error('project_id')
+                                <span class="text-danger">{{ $message }}</span>   
+                            @enderror
                         </div>
                         <div class="col-md-7 mt-3">
                             <label class="fs-6 fw-bold text-dark" for="">Donation amount:</label>
                             <input name="amount" type="text" class="form-control" placeholder="Donation amount">
+                            @error('amount')
+                                <span class="text-danger">{{ $message }}</span>   
+                            @enderror
                         </div>
                         <div class="col-md-7 mt-3">
                             <label class="fs-6 fw-bold text-dark" for="">Message for us :</label>
                             <textarea name="message" type="text" rows="6" class="form-control" placeholder="Message">{{ old('message') }}</textarea>
+                            @error('message')
+                                <span class="text-danger">{{ $message }}</span>   
+                            @enderror
                         </div>
                         <div>
                             <button class="btn btn-success mt-4">Donate</button>

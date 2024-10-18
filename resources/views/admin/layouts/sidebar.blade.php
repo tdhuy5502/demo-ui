@@ -84,6 +84,18 @@
             <span>Volunteers</span></a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.contacts.index') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Contacts</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.whatwedos.index') }}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>What we do</span></a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
