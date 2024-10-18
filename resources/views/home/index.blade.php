@@ -128,7 +128,7 @@
             @foreach($news as $new)
               <div class="col-md-3">
                 <div class="card">
-                  <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
+                  <img class="img-fluid team-img" src="{{ $new->image ? asset('uploads/news/' . $new->image) : asset('assets/img_news1.png') }}" alt="News Image" >
                   <div class="card-body">
                     <a href="{{ route('news-details.show',$new->id) }}" class="fw-bold nav-link fs-5 text-dark card-title-news">{{ $new->title }}</a>
                     <p class="card-text-news">{{ $new->subtitle }}</p>

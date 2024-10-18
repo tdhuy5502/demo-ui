@@ -8,7 +8,7 @@
                 Update News Post
             </h3>
             <hr>
-            <form action="{{ route('admin.news.update',$news->id) }}" method="post">
+            <form action="{{ route('admin.news.update',$news->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div>
                     <input type="hidden" name="id" value="{{ $news->id }}">

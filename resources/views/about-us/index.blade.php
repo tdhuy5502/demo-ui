@@ -130,7 +130,7 @@
         <div class="row text-center">
             @foreach ($members as $member)
             <div class="col-md-3 mb-4">
-                <img src="{{ asset('assets/team_member2.png') }}" class="img-fluid team-img" alt="Team Member">
+                <img src="{{ $member->avatar ? asset('uploads/members/' . $member->avatar) : asset('uploads/members/default-avatar.jpg') }}" class="img-fluid team-img" alt="">
                 <h6 class="fw-bold">{{ $member->name }}</h6>
                 <p>{{ $member->role->name }}</p>
             </div>
@@ -161,7 +161,7 @@
         @foreach($news as $new)
         <div class="col-md-3">
             <div class="card">
-              <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
+              <img class="img-fluid team-img" src="{{ $new->image ? asset('uploads/news/' . $new->image) : asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
               <div class="card-body">
                 <a href="{{ route('news-details.show',$new->id) }}" class="fw-bold nav-link fs-5 text-dark card-title-news">{{ $new->title }}</a>
                 <p class="card-text-news">{{ $new->subtitle }}</p>
