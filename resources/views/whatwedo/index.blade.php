@@ -34,57 +34,24 @@
   <!-- Environment Section -->
   <section class="section-environment py-5">
     <div class="container">
-      <h2>What we do for the environment</h2>
-      <div class="row">
-        <!-- Icon boxes -->
-        <div class="col-md-4 mb-4">
-          <div class="icon-box mx-auto">
-            <i class="fas fa-city"></i>
-          </div>
-          <h5>Build healthy cities</h5>
-          <p>Lorem ipsum dolor sit amet...</p>
+        <h2 class="text-center mb-5">What we do for the environment</h2>
+        <div class="row">
+            @foreach ($whatwedos as $whatwedo)
+                <div class="col-md-6 mb-4">
+                    <div class="align-items-start">
+                        <div class="d-flex align-items-center">
+                          <img src="{{asset('assets/Icon_health.png')}}" style="width: 28px; height: 28px;" alt="">
+                          <div class="mt-2 p-1">
+                              <h6 class="fw-bold fs-5">{{ $whatwedo->title }}</h6>
+                          </div>
+                        </div>
+                        <p class="text-muted col-md-7">{{ $whatwedo->subtitle }}</p>
+                    </div>
+                </div>
+            @endforeach
         </div>
-        <div class="col-md-4 mb-4">
-          <div class="icon-box mx-auto">
-            <i class="fas fa-water"></i>
-          </div>
-          <h5>Water sustainability</h5>
-          <p>Lorem ipsum dolor sit amet...</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="icon-box mx-auto">
-            <i class="fas fa-leaf"></i>
-          </div>
-          <h5>Biodiversity</h5>
-          <p>Lorem ipsum dolor sit amet...</p>
-        </div>
-      </div>
-      <div class="row">
-        <!-- Icon boxes -->
-        <div class="col-md-4 mb-4">
-          <div class="icon-box mx-auto">
-            <i class="fas fa-city"></i>
-          </div>
-          <h5>Build healthy cities</h5>
-          <p>Lorem ipsum dolor sit amet...</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="icon-box mx-auto">
-            <i class="fas fa-water"></i>
-          </div>
-          <h5>Water sustainability</h5>
-          <p>Lorem ipsum dolor sit amet...</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="icon-box mx-auto">
-            <i class="fas fa-leaf"></i>
-          </div>
-          <h5>Biodiversity</h5>
-          <p>Lorem ipsum dolor sit amet...</p>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
 
   <!-- Projects Section -->
   <section class="section-projects py-5 text-center">

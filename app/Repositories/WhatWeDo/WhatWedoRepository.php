@@ -27,4 +27,18 @@ class WhatWedoRepository extends BaseRepository
 
         return true;
     }
+
+    public function getHomeList()
+    {
+        $whatwedos = $this->getModel()->orderByDesc('created_at')->take(4)->get();
+
+        return $whatwedos;
+    }
+
+    public function getIndexList()
+    {
+        $whatwedos = $this->getModel()->orderByDesc('created_at')->take(6)->get();
+
+        return $whatwedos;
+    }
 }

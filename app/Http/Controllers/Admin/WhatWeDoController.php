@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\WhatWeDo\StoreWhatWeDoRequest;
+use App\Http\Requests\Admin\WhatWeDo\UpdateWhatWeDoRequest;
 use App\Repositories\WhatWeDo\WhatWedoRepository;
 use Exception;
 use Illuminate\Http\Request;
@@ -27,24 +29,24 @@ class WhatWeDoController extends Controller
 
     public function index()
     {
-        return view();
+        return view('admin.whatwedo.index');
     }
 
     public function create()
     {
-        return view();
+        return view('admin.whatwedo.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreWhatWeDoRequest $request)
     {
         try
         {
             DB::beginTransaction();
-            $data = $request->all();
+            $data = $request->validated();
             $this->whatWeDoRepository->create($data);
             DB::commit();
 
-            return view('admin.whatwedo.index');
+            return redirect()->route('admin.whatwedos.index');
         }   
         catch(Exception $e)
         {
@@ -56,23 +58,23 @@ class WhatWeDoController extends Controller
 
     public function show(Request $request)
     {
-        $whatwedos = $this->whatWeDoRepository->getById($request->id);
+        $whatwedo = $this->whatWeDoRepository->getById($request->id);
 
         return view('admin.whatwedo.edit')->with([
-            'whatwedos' => $whatwedos
+            'whatwedo' => $whatwedo
         ]);
     }
 
-    public function update(Request $request)
+    public function update(UpdateWhatWeDoRequest $request)
     {
         try
         {
             DB::beginTransaction();
-            $data = $request->all();
+            $data = $request->validated();
             $this->whatWeDoRepository->update($data);
             DB::commit();
 
-            return view('admin.whatwedo.index');
+            return redirect()->route('admin.whatwedos.index');
         }
         catch(Exception $e)
         {
