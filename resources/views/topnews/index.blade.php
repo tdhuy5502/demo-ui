@@ -24,7 +24,7 @@
           @foreach ($latestNews as $news)
           <a class="nav-link" href="{{ route('news-details.show',$news->id) }}">
             <div class="news-item">
-              <img src="{{ asset('assets/dog.png') }}" alt="News 1">
+              <img class="card-img-fluid" src="{{ $news->image ? asset('uploads/news/' . $news->image) : asset('assets/img_news1.png') }}" alt="News 1">
               <div>
                   <h4>{{ $news->title }}</h4>
                   <p>{{ $news->subtitle }}</p>
@@ -45,7 +45,7 @@
             @foreach($allNews as $new)
               <div class="col-md-3">
                 <div class="card">
-                  <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
+                  <img class="img-fluid team-img" src="{{ $new->image ? asset('uploads/news/' . $new->image) : asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
                   <div class="card-body">
                     <a href="{{ route('news-details.show',$new->id)}}" class="fs-bold fw-bold nav-link card-title-news font-bold">{{ $new->title }}</a>
                     <p class="card-text-news">{{ $new->subtitle }}</p>

@@ -62,7 +62,7 @@
         @foreach($projects as $project)
         <div class="col-md-4">
           <div class="card">
-            <img src="{{ asset('assets/weekly_cleann.png') }}" alt="Project Image" class="card-img-top">
+            <img src="{{ asset('assets/weekly_cleann.png') }}" alt="Project Image" class="card-img-top card-img">
             <div class="card-body card-img-overlay">
               <h5 class="card-title">{{ $project->title }}</h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
@@ -97,8 +97,8 @@
       <div class="row">
         @foreach ($news as $newsItem)
         <div class="col-md-3">
-          <div class="card">
-            <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
+          <div class="card border-0">
+            <img class="img-fluid team-img" src="{{ $newsItem->image ? asset('uploads/news/' . $newsItem->image) : asset('assets/img_news1.png') }}" alt="News Image">
             <div class="card-body">
               <a href="{{route('news-details.show',$newsItem->id)}}" class="nav-link fw-bold fs-5 card-title">{{ $newsItem->title }}</a>
               <p class="text-dark">{{ $newsItem->subtitle }}</p>
