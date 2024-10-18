@@ -180,13 +180,21 @@
           <div class="row mt-4">
             <!-- Sự kiện khác -->
             @foreach($events as $event)
+            @php
+                $date = \Carbon\Carbon::parse($event->event_date);
+            @endphp
             <div class="col-md-6 mt-3">
-                <div class="card event-section">
-                  <div class="card-body">
-                    <h3>{{ $event->event_date }}</h3>
-                    <h5>{{ $event->name }}</h5>
-                  </div>
-                </div>
+                <a href="{{ route('event-details.show',$event->id) }}" class="nav-link">
+                    <div class="card event-section">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <h5>{{'Day: ' . $date->format('d ') . ',' }}</h5>
+                                <h5>{{'Month: ' . $date->format(' m') }}</h5>
+                            </div>
+                            <h5>{{ $event->name }}</h5>
+                        </div>
+                    </div>
+                </a>
             </div>
             @endforeach
           </div>
