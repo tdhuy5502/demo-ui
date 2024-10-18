@@ -37,40 +37,12 @@ use App\Http\Controllers\Client\WhatWeDoController;
 */
 
 Route::get('/', function () {
-    return view('home.index');
+    return redirect()->route('home.index');
 });
-
-Route::get('/aboutUs', function () {
-    return view('about-us.index');
-})->name('aboutUs');
-
-Route::get('/topnews', function () {
-    return view('topnews.index');
-})->name('topnews');
 
 Route::get('/contact', function () {
     return view('contact.index');
 })->name('contact');
-
-Route::get('/donate', function () {
-    return view('donate.index');
-})->name('donate');
-
-Route::get('/newsfeed1',function(){
-    return view('newsfeed.news1');
-})->name('news1');
-
-Route::get('/newsfeed2',function(){
-    return view('newsfeed.news2');
-})->name('news2');
-
-Route::get('/events', function(){
-    return view('events-post.index');
-})->name('events');
-
-Route::get('/whatwedo', function(){
-    return view('whatwedo.index');
-})->name('whatwedo');
 
 Route::get('/login-page', function(){
     return view('auth.login');

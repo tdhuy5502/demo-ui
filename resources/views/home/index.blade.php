@@ -17,7 +17,7 @@
         <img src="{{asset('assets/BG Image.png')}}" class="img-fluid w-100" alt="Hero Image" style="object-fit: cover;">
         <div class="container">
             <h1 class="col-5 hero-text">{{ $homeContent['home-title'] }}</h1>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-seemore mt-3">Play Video</a>
+            <a href="https://www.youtube.com/watch?v=_BwpwpIFdvk" class="btn btn-seemore mt-3">Play Video</a>
         </div>
     </section>
 
@@ -75,7 +75,9 @@
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{asset('assets/whatwedo_img.png')}}" class="img-fluid" alt="Activity">
+                    <a href="{{ route('what-we-do.index') }}">
+                      <img src="{{asset('assets/whatwedo_img.png')}}" class="img-fluid" alt="Activity">
+                    </a>
                 </div>
             </div>
         </div>
@@ -99,26 +101,6 @@
                   </div>
                 </div>
               @endforeach
-              {{-- <div class="col-md-4">
-                <div class="card">
-                  <img src="{{ asset('assets/weekly_cleann.png') }}" alt="Project Image" class="card-img-top">
-                  <div class="card-body card-img-overlay">
-                    <h5 class="card-title">Weekly cleanliness program</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-                    <a href="#" class="btn btn-seemore">See more</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="card">
-                  <img src="{{ asset('assets/wild_safety.png') }}" alt="Project Image" class="card-img-top">
-                  <div class="card-body card-img-overlay">
-                    <h5 class="card-title">Wildlife safety program</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-                    <a href="#" class="btn btn-seemore">See more</a>
-                  </div>
-                </div>
-              </div> --}}
             </div>
           </div>
     </section>

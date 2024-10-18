@@ -18,7 +18,7 @@
         <div class="news-content">
             <h2>{{ $homeContent['news-index-title'] }}</h2>
             <p>{{ $homeContent['news-index-content'] }}</p>
-            <a href="#" class="btn-read-more">Read more</a>
+            <a href="{{ route('news-details.index') }}" class="btn-read-more">Read more</a>
         </div>
         <div class="news-list">
           @foreach ($latestNews as $news)

@@ -8,18 +8,18 @@
             <div class="footer-column">
               <h3>Our team</h3>
               <ul>
-                <li><a href="#">About us</a></li>
+                <li><a href="{{ route('about-us.index') }}">About us</a></li>
                 <li><a href="#">Team</a></li>
-                <li><a href="#">What we do</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{{ route('what-we-do.index') }}">What we do</a></li>
+                <li><a href="{{ route('contact') }}">Contact</a></li>
               </ul>
             </div>
             <div class="footer-column">
               <h3>More</h3>
               <ul>
                 <li><a href="#">Projects</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Donate</a></li>
+                <li><a href="{{ route('event-details.index') }}">Events</a></li>
+                <li><a href="{{ route('donation.index') }}">Donate</a></li>
                 <li><a href="#">Blog</a></li>
               </ul>
             </div>
