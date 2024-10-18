@@ -36,8 +36,8 @@ class AboutUsClientController extends Controller
         $membersCount = $this->aboutUsRepository->getMemberCount();
         $volunteersCount = $this->aboutUsRepository->getVolunteersCount();
         $members = $this->aboutUsRepository->getMembers();
-        $news = $this->newsRepository->getAll();
-        $events = $this->eventRepository->getAll();
+        $news = $this->newsRepository->getRelatedNews();
+        $events = $this->eventRepository->getNewEvents();
 
         return view('about-us.index')->with([
             'homeContent' => $homeContent,

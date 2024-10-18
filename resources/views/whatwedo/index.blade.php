@@ -21,8 +21,8 @@
       <div class="row mx-5">
         <div class="col-sm-5">
             <h5>WHAT WE DO</h5>
-          <h2>We are working worldwide</h2>
-          <p class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+          <h2>{{ $homeTitle['what-we-do-main-title'] }}</h2>
+          <p class="">{{ $homeTitle['what-we-do-main-subtitle'] }}</p>
           </div>
           <div class="col-sm-5 mx-5">
             <img src="{{ asset('assets/header-image-whatwedo.png') }}" alt="Intro Image" class="img-fluid">
@@ -92,36 +92,18 @@
       <h5>PROJECTS WE HAS DONE</h5>
         <h2 class="py-5">We are creating a sustainable society, for everyone.</h2>
       <div class="row">
-        <div class="col-md-4">
-          <div class="card">
-            <img src="{{ asset('assets/mission40K.png') }}" alt="Project Image" class="card-img-top">
-            <div class="card-body card-img-overlay">
-              <h5 class="card-title">Mission 40K: Tree plantation</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-              <a href="#" class="btn btn-seemore">See more</a>
-            </div>
-          </div>
-        </div>
+        @foreach($projects as $project)
         <div class="col-md-4">
           <div class="card">
             <img src="{{ asset('assets/weekly_cleann.png') }}" alt="Project Image" class="card-img-top">
             <div class="card-body card-img-overlay">
-              <h5 class="card-title">Weekly cleanliness program</h5>
+              <h5 class="card-title">{{ $project->title }}</h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-              <a href="#" class="btn btn-seemore">See more</a>
+              <a href="{{ route('project-post.show',$project->id) }}" class="btn btn-seemore">See more</a>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="{{ asset('assets/wild_safety.png') }}" alt="Project Image" class="card-img-top">
-            <div class="card-body card-img-overlay">
-              <h5 class="card-title">Wildlife safety program</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-              <a href="#" class="btn btn-seemore">See more</a>
-            </div>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </section>
@@ -146,69 +128,46 @@
     <div class="container">
       <h2 class="text-center">Read Our News</h2>
       <div class="row">
+        @foreach ($news as $newsItem)
         <div class="col-md-3">
           <div class="card">
             <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">Don't destroy greenery</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet...</p>
+              <a href="{{route('news-details.show',$newsItem->id)}}" class="nav-link fw-bold fs-5 card-title">{{ $newsItem->title }}</a>
+              <p class="text-dark">{{ $newsItem->subtitle }}</p>
             </div>
           </div>
         </div>
-        <div class="col-md-3">
-            <div class="card">
-              <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-              <div class="card-body">
-                <h5 class="card-title">Don't destroy greenery</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet...</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-              <div class="card-body">
-                <h5 class="card-title">Don't destroy greenery</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet...</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="card">
-              <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
-              <div class="card-body">
-                <h5 class="card-title">Don't destroy greenery</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet...</p>
-              </div>
-            </div>
-          </div>
+        @endforeach
       </div>
     </div>
   </section>
 
   <!-- Events Section -->
     <section class="section-events py-5">
-        <div class="container text-center">
+        <div class="container ">
           <h2>Our Events</h2>
           <div class="row">
+            
+            <!-- Sự kiện khác -->
+            @foreach ($events as $event)
+            @php
+              $date = \Carbon\Carbon::parse($event->event_date);
+            @endphp
             <div class="col-md-6">
+              <a href="{{ route('event-details.show',$event->id) }}" class="nav-link">
               <div class="card event-section">
                 <div class="card-body">
-                  <h3>23 Sep</h3>
-                  <h5>Say no to plastic usage</h5>
-                </div>
-              </div>
-            </div>
-            <!-- Sự kiện khác -->
-            <div class="col-md-6">
-                <div class="card event-section">
-                  <div class="card-body">
-                    <h3>23 Sep</h3>
-                    <h5>Say no to plastic usage</h5>
+                  <div class="d-flex">
+                    <h5>{{'Day: ' . $date->format('d ') . ',' }}</h5>
+                    <h5>{{'Month: ' . $date->format(' m') }}</h5>
                   </div>
+                  <h5>{{ $event->name }}</h5>
                 </div>
               </div>
+            </a>
+            </div>
+            @endforeach
               
           </div>
         </div>

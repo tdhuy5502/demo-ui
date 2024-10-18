@@ -9,38 +9,39 @@ use App\Repositories\News\NewsRepository;
 use App\Repositories\Project\ProjectRepository;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class WhatWeDoController extends Controller
 {
     //
-    protected $homeClientRepository;
-    protected $projectRepository;
+    protected $homeRepository;
     protected $newsRepository;
     protected $eventRepository;
+    protected $projectRepository;
 
     public function __construct(
+        ProjectRepository $projectRepository,
         EventRepository $eventRepository,
         NewsRepository $newsRepository,
-        ProjectRepository $projectRepository,
-        HomeClientRepository $homeClientRepository)
+        HomeClientRepository $homeRepository)
     {
-        $this->homeClientRepository = $homeClientRepository;
-        $this->projectRepository = $projectRepository;
+        $this->homeRepository = $homeRepository;
         $this->newsRepository = $newsRepository;
-        $this->eventRepository= $eventRepository;
+        $this->eventRepository = $eventRepository;
+        $this->projectRepository = $projectRepository;
+        //whatwedoRepository
     }
 
     public function index()
     {
-        $homeContent = $this->homeClientRepository->getData();
-        $projects = $this->projectRepository->getAll();
+        $homeTitle = $this->homeRepository->getData();
         $news = $this->newsRepository->getRelatedNews();
         $events = $this->eventRepository->getNewEvents();
-        
-        return view('home.index')->with([
-            'homeContent' => $homeContent,
-            'projects' => $projects,
+        $projects = $this->projectRepository->getProjectList();
+
+        return view('whatwedo.index')->with([
+            'homeTitle' => $homeTitle,
             'news' => $news,
-            'events' => $events
+            'events' => $events,
+            'projects' => $projects
         ]);
     }
 }

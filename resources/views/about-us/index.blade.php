@@ -163,8 +163,8 @@
             <div class="card">
               <img src="{{ asset('assets/img_news1.png') }}" alt="News Image" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title-news">{{ $new->title }}</h5>
-                <p class="card-text-news">{{ $new->content }}</p>
+                <a href="{{ route('news-details.show',$new->id) }}" class="fw-bold nav-link fs-5 text-dark card-title-news">{{ $new->title }}</a>
+                <p class="card-text-news">{{ $new->subtitle }}</p>
               </div>
             </div>
           </div>
@@ -180,13 +180,21 @@
           <div class="row mt-4">
             <!-- Sự kiện khác -->
             @foreach($events as $event)
+            @php
+                $date = \Carbon\Carbon::parse($event->event_date);
+            @endphp
             <div class="col-md-6 mt-3">
-                <div class="card event-section">
-                  <div class="card-body">
-                    <h3>{{ $event->event_date }}</h3>
-                    <h5>{{ $event->name }}</h5>
-                  </div>
-                </div>
+                <a href="{{ route('event-details.show',$event->id) }}" class="nav-link">
+                    <div class="card event-section">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <h5>{{'Day: ' . $date->format('d ') . ',' }}</h5>
+                                <h5>{{'Month: ' . $date->format(' m') }}</h5>
+                            </div>
+                            <h5>{{ $event->name }}</h5>
+                        </div>
+                    </div>
+                </a>
             </div>
             @endforeach
           </div>

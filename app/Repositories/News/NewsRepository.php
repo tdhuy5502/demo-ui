@@ -26,4 +26,29 @@ class NewsRepository extends BaseRepository
 
         return true;
     }
+
+    public function getLatestNews()
+    {
+        $news = $this->getModel()->createdThisMonth()
+        ->orderBy('created_at','desc')
+        ->take(3)->get();
+
+        return $news;
+    }
+
+    public function getTopNews()
+    {
+        $topNews = $this->getModel()->orderBy('created_at','desc')->first();
+
+        return $topNews;
+    }
+
+    public function getRelatedNews()
+    {
+        $relatedNews = $this->getModel()
+        ->createdThisMonth()
+        ->orderByDesc('created_at')->take(4)->get();
+
+        return $relatedNews;
+    }
 }

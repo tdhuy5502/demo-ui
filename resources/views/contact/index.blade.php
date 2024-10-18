@@ -44,36 +44,57 @@
 </section>
 
 <section class="form-section justify-content-center">
-    <div class="p-5">
-        <form>
-            <div class="row mb-3">
-                <div class="col">
-                    <p class="fw-bold fs-7 text-muted mb-1">First Name</p>
-                    <input type="text" class="form-control" placeholder="First Name">
-                </div>
-                <div class="col">
-                    <p class="fw-bold fs-7 text-muted mb-1">Last Name</p>
-                    <input type="text" class="form-control" placeholder="Last Name">
-                </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="p-5 m-5">
+                <form action="{{ route('get-contacts.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row mb-3">
+                        <div class="col">
+                            <p class="fw-bold fs-7 text-muted mb-1">First Name</p>
+                            <input name="first_name" type="text" class="form-control" placeholder="First Name" value="{{ old('first_name') }}">
+                            @error('first_name')
+                                <span class="text-danger">{{ $message }}</span>   
+                            @enderror
+                        </div>
+                        <div class="col">
+                            <p class="fw-bold fs-7 text-muted mb-1">Last Name</p>
+                            <input name="last_name" type="text" class="form-control" placeholder="Last Name" value="{{ old('last_name') }}">
+                            @error('last_name')
+                                <span class="text-danger">{{ $message }}</span>   
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <p class="fw-bold fs-7 text-muted mb-1">Email Id</p>
+                            <input name="email" type="email" class="form-control" placeholder="Email Id" value="{{ old('email') }}">
+                            @error('email')
+                                <span class="text-danger">{{ $message }}</span>   
+                            @enderror
+                        </div>
+                        
+                        <div class="col">
+                            <p class="fw-bold fs-7 text-muted mb-1">Subject</p>
+                            <input name="subject" type="text" class="form-control" placeholder="Subject" value="{{ old('subject') }}">
+                            @error('subject')
+                                <span class="text-danger">{{ $message }}</span>   
+                            @enderror
+                        </div>  
+                    </div>
+                    <div class="mb-3">
+                        <p class="fw-bold fs-7 text-muted mb-1">Message</p>
+                        <textarea name="message" class="form-control" rows="4" placeholder="Message">{{ old('message') }}</textarea>
+                        @error('message')
+                            <span class="text-danger">{{ $message }}</span>   
+                        @enderror
+                    </div>
+                    <div class="container col-sm-12 col-lg-2">
+                        <button type="submit" class="btn btn-success">Send message</button>
+                    </div>
+                </form>
             </div>
-            <div class="row mb-3">
-                <div class="col">
-                    <p class="fw-bold fs-7 text-muted mb-1">Email Id</p>
-                    <input type="email" class="form-control" placeholder="Email Id">
-                </div>
-                <div class="col">
-                    <p class="fw-bold fs-7 text-muted mb-1">Subject</p>
-                    <input type="text" class="form-control" placeholder="Subject">
-                </div>
-            </div>
-            <div class="mb-3">
-                <p class="fw-bold fs-7 text-muted mb-1">Message</p>
-                <textarea class="form-control" rows="4" placeholder="Message"></textarea>
-            </div>
-            <div class="container col-sm-12 col-lg-2">
-                <button type="submit" class="btn btn-success">Send message</button>
-            </div>
-        </form>
+        </div>
     </div>
 </section>
 

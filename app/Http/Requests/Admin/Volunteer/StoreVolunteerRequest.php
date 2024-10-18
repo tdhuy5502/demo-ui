@@ -2,12 +2,11 @@
 
 namespace App\Http\Requests\Admin\Volunteer;
 
-use Closure;
 use App\Models\Volunteer;
-use Illuminate\Validation\Rule;
+use Closure;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateVolunteerRequest extends FormRequest
+class StoreVolunteerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +25,6 @@ class UpdateVolunteerRequest extends FormRequest
     {
         return [
             //
-            'id' => 'exixts:volunteers,id',
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => [
@@ -35,7 +33,6 @@ class UpdateVolunteerRequest extends FormRequest
                 function (string $attribute ,mixed $value , Closure $fail)
                 {
                     $email = Volunteer::where('email','=',$value)
-                    ->where('id','!=',$this->route()->id)
                     ->pluck('email')->first();
 
                     if($email == $value)
@@ -46,17 +43,6 @@ class UpdateVolunteerRequest extends FormRequest
             ],
             'project_id' => 'required',
             'message' => 'sometimes'
-        ];
-    }
-    
-    public function messages()
-    {
-        return [
-            'first_name.required' => 'Please enter first name',
-            'last_name.required' => 'Please enter last name',
-            'email.required' => 'Email cannot be blank',
-            'email.regex' => 'Invalid email format',
-            'email.unique' => 'This mail address already in use' 
         ];
     }
 }

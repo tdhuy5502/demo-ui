@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Client\VolunteerClientController;
 use App\Models\Donation;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UIController;
@@ -9,11 +10,19 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\AboutUsController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\DonationController;
 use App\Http\Controllers\Admin\VolunnteerController;
 use App\Http\Controllers\Admin\HomeContentController;
+use App\Http\Controllers\Client\NewsClientController;
 use App\Http\Controllers\Client\AboutUsClientController;
+use App\Http\Controllers\Client\ClientContactController;
+use App\Http\Controllers\Client\DonationClientConntroller;
+use App\Http\Controllers\Client\EventPostController;
+use App\Http\Controllers\Client\NewsFeedController;
+use App\Http\Controllers\Client\ProjectPostController;
+use App\Http\Controllers\Client\WhatWeDoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -184,6 +193,17 @@ Route::middleware(['checkAdminLogin'])
         Route::post('/{id}/update','update')->name('update');
         Route::delete('{id}','destroy')->name('delete');
     });
+
+    Route::controller(ContactController::class)
+    ->prefix('/contacts')
+    ->as('contacts.')
+    ->group(function(){
+        Route::get('','index')->name('index');
+        Route::get('getData','getData')->name('getData');
+        Route::get('/show/{id}','show')->name('show');
+        Route::post('/{id}/update','update')->name('update');
+        Route::delete('{id}','destroy')->name('delete');
+    });
 });
 
 Route::controller(UIController::class)
@@ -207,4 +227,61 @@ Route::controller(AboutUsClientController::class)
 ->prefix('/about-us')
 ->as('about-us.')->group(function(){
     Route::get('','index')->name('index');
+});
+
+Route::controller(NewsClientController::class)
+->prefix('/top-news')
+->as('top-news.')->group(function(){
+    Route::get('','index')->name('index');
+});
+
+Route::controller(WhatWeDoController::class)
+->prefix('/what-we-do')
+->as('what-we-do.')
+->group(function(){
+    Route::get('','index')->name('index');
+});
+
+Route::controller(DonationClientConntroller::class)
+->prefix('/donation')
+->as('donation.')
+->group(function(){
+    Route::get('','index')->name('index');
+    Route::get('create','create')->name('create');
+    Route::post('store','store')->name('store');
+});
+
+Route::controller(ProjectPostController::class)
+->prefix('/project-post')
+->as('project-post.')
+->group(function(){
+    Route::get('','index')->name('index');
+    Route::get('/show/{id}','show')->name('show');
+});
+
+Route::controller(NewsFeedController::class)
+->prefix('news-details')
+->as('news-details.')->group(function(){
+    Route::get('','index')->name('index');
+    Route::get('/show/{id}','show')->name('show');
+});
+
+Route::controller(ClientContactController::class)
+->prefix('get-contacts')
+->as('get-contacts.')->group(function(){
+    Route::post('store','store')->name('store');
+});
+
+Route::controller(VolunteerClientController::class)
+->prefix('/join-volunteer')
+->as('join-volunteer.')->group(function(){
+    Route::get('','create')->name('join');
+    Route::post('store','store')->name('store');
+});
+
+Route::controller(EventPostController::class)
+->prefix('event-details')
+->as('event-details.')->group(function(){
+    Route::get('','index')->name('index');
+    Route::get('/show/{id}','show')->name('show');
 });
