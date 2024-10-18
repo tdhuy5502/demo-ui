@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\DonationController;
 use App\Http\Controllers\Admin\VolunnteerController;
 use App\Http\Controllers\Admin\HomeContentController;
+use App\Http\Controllers\Admin\WhatWeDoController as AdminWhatWeDoController;
 use App\Http\Controllers\Client\NewsClientController;
 use App\Http\Controllers\Client\AboutUsClientController;
 use App\Http\Controllers\Client\ClientContactController;
@@ -200,6 +201,19 @@ Route::middleware(['checkAdminLogin'])
     ->group(function(){
         Route::get('','index')->name('index');
         Route::get('getData','getData')->name('getData');
+        Route::get('/show/{id}','show')->name('show');
+        Route::post('/{id}/update','update')->name('update');
+        Route::delete('{id}','destroy')->name('delete');
+    });
+
+    Route::controller(AdminWhatWeDoController::class)
+    ->prefix('/whatwedos')
+    ->as('whatwedos.')
+    ->group(function(){
+        Route::get('','index')->name('index');
+        Route::get('/data','getData')->name('getData');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
         Route::get('/show/{id}','show')->name('show');
         Route::post('/{id}/update','update')->name('update');
         Route::delete('{id}','destroy')->name('delete');

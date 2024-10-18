@@ -61,42 +61,17 @@
                     <h2 class="fw-bold">We care for earth, care for the coming birth</h2>
                     <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
                     <ul class="list-unstyled col-lg-8">
-                        <li>
-                            <div class="d-flex align-items-center">
-                                <img src="{{asset('assets/Icon_health.png')}}" style="width: 28px; height: 28px;" alt="">
-                                <div class="mt-2 p-1">
-                                    <h6 class="fw-bold fs-5">Build Healthy Cities</h6>
-                                </div>
+                      @foreach($whatwedos as $whatwedo)
+                      <li>
+                        <div class="d-flex align-items-center">
+                            <img src="{{asset('assets/Icon_health.png')}}" style="width: 28px; height: 28px;" alt="">
+                            <div class="mt-2 p-1">
+                                <h6 class="fw-bold fs-5">{{ $whatwedo->title }}</h6>
                             </div>
-                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-                        </li>
-                        <li>
-                            <div class="d-flex align-items-center">
-                                <img src="{{asset('assets/Icon_tree_plant.png')}}" alt="">
-                                <div class="mt-2 p-1">
-                                    <h6 class="fw-bold fs-5">Tree Plantation</h6>
-                                </div>
-                            </div>
-                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-                        </li>
-                        <li>
-                            <div class="d-flex align-items-center">
-                                <img src="{{asset('assets/Icon_protect_land.png')}}" alt="">
-                                <div class="mt-2 p-1">
-                                    <h6 class="fw-bold fs-5">Protect Land and Water</h6>
-                                </div>
-                            </div>
-                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-                        </li>
-                        <li>
-                            <div class="d-flex align-items-center">
-                                <img src="{{asset('assets/Icon_animal.png')}}" alt="">
-                                <div class="mt-2 p-1">
-                                    <h6 class="fw-bold fs-5">Animal Safety & Rescue</h6>
-                                </div>
-                            </div>
-                            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
-                        </li>
+                        </div>
+                        <p class="text-muted">{{ $whatwedo->subtitle }}</p>
+                      </li>
+                      @endforeach
                     </ul>
                 </div>
                 <div class="col-md-6">
