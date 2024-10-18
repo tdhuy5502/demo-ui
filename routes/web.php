@@ -19,6 +19,7 @@ use App\Http\Controllers\Client\NewsClientController;
 use App\Http\Controllers\Client\AboutUsClientController;
 use App\Http\Controllers\Client\ClientContactController;
 use App\Http\Controllers\Client\DonationClientConntroller;
+use App\Http\Controllers\Client\EventPostController;
 use App\Http\Controllers\Client\NewsFeedController;
 use App\Http\Controllers\Client\ProjectPostController;
 use App\Http\Controllers\Client\WhatWeDoController;
@@ -276,4 +277,11 @@ Route::controller(VolunteerClientController::class)
 ->as('join-volunteer.')->group(function(){
     Route::get('','create')->name('join');
     Route::post('store','store')->name('store');
+});
+
+Route::controller(EventPostController::class)
+->prefix('event-details')
+->as('event-details.')->group(function(){
+    Route::get('','index')->name('index');
+    Route::get('/show/{id}','show')->name('show');
 });

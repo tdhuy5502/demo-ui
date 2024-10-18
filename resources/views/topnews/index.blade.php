@@ -22,13 +22,15 @@
         </div>
         <div class="news-list">
           @foreach ($latestNews as $news)
-          <div class="news-item">
-            <img src="{{ asset('assets/dog.png') }}" alt="News 1">
-            <div>
-                <h4>{{ $news->title }}</h4>
-                <p>{{ $news->subtitle }}</p>
+          <a class="nav-link" href="{{ route('news-details.show',$news->id) }}">
+            <div class="news-item">
+              <img src="{{ asset('assets/dog.png') }}" alt="News 1">
+              <div>
+                  <h4>{{ $news->title }}</h4>
+                  <p>{{ $news->subtitle }}</p>
+              </div>
             </div>
-          </div>
+          </a>
           @endforeach
         </div>
     </section>
@@ -56,20 +58,26 @@
       </section>
     
       <!-- Events Section -->
-        <section class="section-events py-5">
+        <section class="section-events">
             <div class="container">
               <h2 class="fw-bold">Our Events</h2>
               <div class="row mt-4">            
                 <!-- Sự kiện khác -->
                 @foreach ($events as $event)
-                <div class="col-md-6 mt-3">
-                  <div class="card event-section">
-                    <div class="card-body">
-                      <h3>{{ $event->event_date }}</h3>
-                      <h5>{{ $event->name }}</h5>
-                    </div>
+                  @php
+                    $date = \Carbon\Carbon::parse($event->event_date);
+                  @endphp
+                  <div class="col-md-6 mt-3">
+                    <a href="{{ route('event-details.show',$event->id) }}" class="nav-link display-flex">
+                      <div class="card event-section">
+                        <div class="card-body">
+                          <h3>{{ 'Day: ' . $date->format('d') }}</h3>
+                          <h5>{{ 'Month: ' . $date->format('m') }}</h5>
+                          <h5 class="fw-bold">{{ $event->name }}</h5>
+                        </div>
+                      </div>
+                    </a>
                   </div>
-                </div>
                 @endforeach
               </div>
             </div>

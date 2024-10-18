@@ -29,7 +29,7 @@ class NewsClientController extends Controller
     {   
         $lastestNews = $this->newsRepository->getLatestNews();
         $allNews = $this->newsRepository->getRelatedNews();
-        $events = $this->eventRepository->getAll();
+        $events = $this->eventRepository->getNewEvents();
         $homeContent = $this->homeRepository->getData();
        
         return view('topnews.index')->with([

@@ -26,7 +26,7 @@ class UpdateEventRequest extends FormRequest
             'id' => 'exists:events,id',
             'name' => 'required|max:255',
             'destination' => 'sometimes|max:255',
-            'content' => 'required|max:450',
+            'content' => 'required|max:900',
             'date' => 'required|date_format:Y-m-d'
         ];
     }

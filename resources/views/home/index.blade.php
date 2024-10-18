@@ -17,7 +17,7 @@
         <img src="{{asset('assets/BG Image.png')}}" class="img-fluid w-100" alt="Hero Image" style="object-fit: cover;">
         <div class="container">
             <h1 class="col-5 hero-text">{{ $homeContent['home-title'] }}</h1>
-            <a href="#" class="btn btn-seemore mt-3">Play Video</a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-seemore mt-3">Play Video</a>
         </div>
     </section>
 
@@ -29,7 +29,7 @@
                     <h6 class="fw-bold">KNOW ABOUT US</h6>
                     <h2 class="fw-bold">{{ $homeContent['about-us-title'] }}</h2>
                     <p class="text-muted">{{ $homeContent['about-us-subtitle'] }}</p>
-                    <a href="#" class="btn btn-success">Learn More</a>
+                    <a href="{{ route('about-us.index') }}" class="btn btn-success">Learn More</a>
                 </div>
                 <div class="col-md-6">
                     <img src="{{asset('assets/BG.png')}}" class="img-fluid" alt="Hero Image">
@@ -64,7 +64,7 @@
                         <li>
                             <div class="d-flex align-items-center">
                                 <img src="{{asset('assets/Icon_health.png')}}" style="width: 28px; height: 28px;" alt="">
-                                <div class="mt-2">
+                                <div class="mt-2 p-1">
                                     <h6 class="fw-bold fs-5">Build Healthy Cities</h6>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                         <li>
                             <div class="d-flex align-items-center">
                                 <img src="{{asset('assets/Icon_tree_plant.png')}}" alt="">
-                                <div class="mt-2">
+                                <div class="mt-2 p-1">
                                     <h6 class="fw-bold fs-5">Tree Plantation</h6>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                         <li>
                             <div class="d-flex align-items-center">
                                 <img src="{{asset('assets/Icon_protect_land.png')}}" alt="">
-                                <div class="mt-2">
+                                <div class="mt-2 p-1">
                                     <h6 class="fw-bold fs-5">Protect Land and Water</h6>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                         <li>
                             <div class="d-flex align-items-center">
                                 <img src="{{asset('assets/Icon_animal.png')}}" alt="">
-                                <div class="mt-2">
+                                <div class="mt-2 p-1">
                                     <h6 class="fw-bold fs-5">Animal Safety & Rescue</h6>
                                 </div>
                             </div>
@@ -118,8 +118,8 @@
                     <img src="{{ asset('assets/mission40K.png') }}" alt="Project Image" class="card-img-top">
                     <div class="card-body card-img-overlay">
                       <h5 class="card-title">{{ $project->title }}</h5>
-                      <p class="card-text">{{ $project->content }}</p>
-                      <a href="#" class="btn btn-seemore">See more</a>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.</p>
+                      <a href="{{ route('project-post.show',$project->id) }}" class="btn btn-seemore">See more</a>
                     </div>
                   </div>
                 </div>
@@ -156,8 +156,8 @@
                 <h2 class="text-volunteer col-lg-6">You can contribute to make the environment greener!</h2>
             </div>
             <div class="">
-                <a href="#" class="btn btn-success me-2">Join as a volunteer</a>
-                <a href="#" class="btn btn-seemore">Donate</a>
+                <a href="{{ route('join-volunteer.join') }}" class="btn btn-success me-2">Join as a volunteer</a>
+                <a href="{{ route('donation.index') }}" class="btn btn-seemore">Donate</a>
             </div>
         </div>
     </section>
@@ -185,18 +185,26 @@
     
       <!-- Events Section -->
         <section class="section-events py-5">
-            <div class="container text-center">
+            <div class="container">
               <h2 class="fw-bold">Our Events</h2>
               <div class="row mt-4">
               <!-- Sự kiện khác -->
               @foreach($events as $event)
+              @php
+                $date = \Carbon\Carbon::parse($event->event_date);
+              @endphp
                 <div class="col-md-6">
-                  <div class="card event-section mt-3">
-                    <div class="card-body">
-                      <h3>{{ $event->event_date }}</h3>
-                      <h5>{{ $event->name }}</h5>
+                  <a class="nav-link" href="{{ route('event-details.show',$event->id) }}">
+                    <div class="card event-section mt-3">
+                      <div class="card-body">
+                        <div class="d-flex">
+                          <h5 class="fw-bold">{{'Day: ' . $date->format('d ') . ',' }}</h5>
+                          <h5 class="fw-bold">{{'Month: ' . $date->format(' m') }}</h5>
+                        </div>
+                        <h5 class="fw-bold">{{ $event->name }}</h5>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               @endforeach
               </div>

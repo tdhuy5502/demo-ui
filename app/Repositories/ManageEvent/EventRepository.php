@@ -26,4 +26,25 @@ class EventRepository extends BaseRepository
 
         return true;
     }
+
+    public function getNewEvents()
+    {
+        $events = Events::orderByDesc('event_date')->take(2)->get();
+
+        return $events;
+    }
+
+    public function getLatestEvent()
+    {
+        $event = Events::orderByDesc('event_date')->first();
+
+        return $event;
+    }
+
+    public function getEventList($id)
+    {
+        $events = Events::where('id','!=',$id)->orderBy('event_date')->take(2)->get();
+
+        return $events;
+    }
 }
