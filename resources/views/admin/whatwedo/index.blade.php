@@ -6,8 +6,8 @@
     <div class="card shadow p-0">
         <div class="card-body">
             <div class="row">
-                <div class="">
-                    <h5>Home Page Content</h5>
+                <div class="col-6">
+                    <h5>What We Do Content</h5>
                 </div>
                 <div class="col-6 d-flex justify-content-end">
                     <div class="fl-right inline-blk">
