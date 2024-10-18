@@ -21,7 +21,7 @@
                 <h6 class="text-uppercase fw-bold">Donate</h6>
                 <h1 class="fw-bold">{{ $homeTitle['donate-home-banner'] ?? 'Making a donation for Nature.' }}</h1>
                 <p class="text-muted">{{ $homeTitle['donate-home-subtitle'] ?? "When you donate, you're supporting effective solutions to big environmental challenges—an investment in the future of our planet."}}</p>
-                <a href="#" class="btn btn-success">Donate now</a>
+                <a href="{{ route('donation.create') }}" class="btn btn-success">Donate now</a>
             </div>
             <div class="col-md-6 mt-4">
                 <img src="{{asset('assets/donate.png')}}" class="img-fluid rounded" alt="Donation Image">
@@ -91,7 +91,7 @@
                 <h2 class="text-volunteer col-lg-6">You can contribute to make the environment greener!</h2>
             </div>
             <div class="">
-                <a href="#" class="btn btn-success me-2">Join as a volunteer</a>
+                <a href="{{ route('join-volunteer.join') }}" class="btn btn-success me-2">Join as a volunteer</a>
                 <a href="#" class="btn btn-seemore">Donate</a>
             </div>
         </div>

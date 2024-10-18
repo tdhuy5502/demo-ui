@@ -45,7 +45,7 @@ class AboutUsRepository extends BaseRepository {
 
     public function getDonatorCount()
     {
-        $donationCount = Donation::count();
+        $donationCount = Donation::with('project')->count();
 
         return $donationCount;
     }
@@ -68,7 +68,7 @@ class AboutUsRepository extends BaseRepository {
 
     public function getMembers()
     {
-        $members = Member::with('role')->get();
+        $members = Member::with('role')->orderBy('id','asc')->take(8)->get();
 
         return $members;
     }

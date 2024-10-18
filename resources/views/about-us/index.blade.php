@@ -146,8 +146,8 @@
             <h2 class="text-volunteer col-lg-6">You can contribute to make the environment greener!</h2>
         </div>
         <div class="">
-            <a href="#" class="btn btn-success me-2">Join as a volunteer</a>
-            <a href="#" class="btn btn-seemore">Donate</a>
+            <a href="{{ route('join-volunteer.join') }}" class="btn btn-success me-2">Join as a volunteer</a>
+            <a href="{{ route('donation.index') }}" class="btn btn-seemore">Donate</a>
         </div>
     </div>
 </section>
