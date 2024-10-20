@@ -16,8 +16,8 @@
     <!-- Top News Section -->
     <section class="top-news-section">
         <div class="news-content">
-            <h2>{{ $homeContent['news-index-title'] }}</h2>
-            <p>{{ $homeContent['news-index-content'] }}</p>
+            <h2>{{ $homeContent['news-index-title'] ?? 'Our goal is to make water available for everyone' }}</h2>
+            <p>{{ $homeContent['news-index-content'] ?? 'Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.' }}</p>
             <a href="{{ route('news-details.index') }}" class="btn-read-more">Read more</a>
         </div>
         <div class="news-list">
