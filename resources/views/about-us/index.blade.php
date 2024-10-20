@@ -20,11 +20,11 @@
         <div class="row mb-4">
             <h5 class="">KNOW ABOUT US</h5>
             <div class="col-lg-5">
-                <h2>{{ $aboutUsData['about-us-index-main-title'] }}</h2>
+                <h2>{{ $aboutUsData['about-us-index-main-title'] ?? 'We are a nonprofit team working worldwide' }}</h2>
             </div>
             <div class="col-lg-6">
-                <h5>{{ $aboutUsData['about-us-index-subtitle'] }}</h5>
-                <p>{{ $aboutUsData['about-us-content'] }}</p>
+                <h5>{{ $aboutUsData['about-us-index-subtitle'] ?? 'Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.' }}</h5>
+                <p>{{ $aboutUsData['about-us-content'] ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Suspendisse varius enim elementum tristique.' }}</p>
             </div>
         </div>
 
@@ -39,12 +39,12 @@
                     <div class="row">
                         <div class="mission col-md-6">
                             <h5>OUR MISSION</h5>
-                            <h4 class="fw-bold col-7">{{ $aboutUsData['about-us-mission-title'] }}</h4>
+                            <h4 class="fw-bold col-7">{{ $aboutUsData['about-us-mission-title'] ?? 'We make the world we save our own environment' }}</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
                         </div>
                         <div class="vision col-md-6">
                             <h5>OUR VISION</h5>
-                            <h4 class="fw-bold col-7">{{ $aboutUsData['about-us-vision-title'] }}</h4>
+                            <h4 class="fw-bold col-7">{{ $aboutUsData['about-us-vision-title'] ?? 'Plant more trees to make world air pollution free' }}</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</p>
                         </div>
                     </div>
@@ -107,8 +107,8 @@
         <div class="row">
             <div class="col-md-6 ">
                 <h6>OUR JOURNEY</h6>
-                <h3 class="fw-bold">{{ $aboutUsData['about-us-journey'] }}</h3>
-                <p class="mt-4">{{ $aboutUsData['about-us-journey-content'] }}</p>
+                <h3 class="fw-bold">{{ $aboutUsData['about-us-journey'] . ' ' . $donatorCount . 'M+' ?? 'How we raised ' . $donatorCount . 'M+' }}</h3>
+                <p class="mt-4">{{ $aboutUsData['about-us-journey-content'] ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh.' }}</p>
                 <p><strong>{{ $donatorCount }}M+</strong> Donations received</p>
                 <p><strong>{{ $membersCount }}+</strong> Team members</p>
                 <p><strong>{{ $volunteersCount }}k+</strong> Volunteers worldwide</p>
@@ -131,7 +131,7 @@
             @foreach ($members as $member)
             <div class="col-md-3 mb-4">
                 <img src="{{ $member->avatar ? asset('uploads/members/' . $member->avatar) : asset('uploads/members/default-avatar.jpg') }}" class="img-fluid team-img" alt="">
-                <h6 class="fw-bold">{{ $member->name }}</h6>
+                <h6 class="fw-bold mt-2">{{ $member->name }}</h6>
                 <p>{{ $member->role->name }}</p>
             </div>
             @endforeach

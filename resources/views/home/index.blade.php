@@ -16,7 +16,7 @@
     <section class="hero-section position-relative text-white align-items-start">
         <img src="{{asset('assets/BG Image.png')}}" class="img-fluid w-100" alt="Hero Image" style="object-fit: cover;">
         <div class="container">
-            <h1 class="col-5 hero-text">{{ $homeContent['home-title'] }}</h1>
+            <h1 class="col-5 hero-text">{{ $homeContent['home-title'] ?? 'Save the environment today for a better tomorrow' }}</h1>
             <a href="https://www.youtube.com/watch?v=_BwpwpIFdvk" class="btn btn-seemore mt-3">Play Video</a>
         </div>
     </section>
@@ -27,8 +27,9 @@
             <div class="row">
                 <div class="col-md-6 mt-5">
                     <h6 class="fw-bold">KNOW ABOUT US</h6>
-                    <h2 class="fw-bold">{{ $homeContent['about-us-title'] }}</h2>
-                    <p class="text-muted">{{ $homeContent['about-us-subtitle'] }}</p>
+                    <h2 class="fw-bold">{{ $homeContent['about-us-title'] ?? 'We help nature smile and survive everywhere' }}</h2>
+                    <p class="text-muted">{{ $homeContent['about-us-subtitle'] ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+‍             Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.' }}</p>
                     <a href="{{ route('about-us.index') }}" class="btn btn-success">Learn More</a>
                 </div>
                 <div class="col-md-6">

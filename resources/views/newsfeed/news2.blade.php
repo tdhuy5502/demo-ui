@@ -48,7 +48,7 @@
         </li>
     </ul>
     
-    <h4 class="fw-bold mt-5" style="font-size: 28px;">Transform Your Idea Into Reality with Ether a Leading Digital Agency</h4>
+    <h4 class="fw-bold mt-5" style="font-size: 28px;">{{ $homeContent['top-news-post-subtitle'] ?? 'Transform Your Idea Into Reality with Ether a Leading Digital Agency'}}</h4>
     <p class="text-muted mt-4">{{ $topnews->content }}</p>
 </section>
 

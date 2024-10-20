@@ -29,8 +29,8 @@
 </section>
 
 <section class="section container py-5 col-md-7">
-    <h2 class="fw-bold cool-text">{{ $homeContent['tree-project-subtitle'] }}</h2>
-    <p class="text-muted mt-4">{{ $homeContent['project-tree-subcontent'] }}</p>
+    <h2 class="fw-bold cool-text">{{ $homeContent['tree-project-subtitle'] ?? 'Some cool heading' }}</h2>
+    <p class="text-muted mt-4">{{ $homeContent['project-tree-subcontent'] ?? 'Posuere sed pulvinar enim faucibus justo, cursus. In diam facilisi at sit convallis blandit blandit in. Maecenas odio orci lectus urna ante consequat erat non morbi. Rhoncus ullamcorper dictum sit non semper sit tellus adipiscing. Est sapien rhoncus sit vestibulum sollicitudin. Tellus urna malesuada eu id tempus lorem. Est aliquam sem bibendum felis interdum pharetra. Diam fermentum in lectus morbi at eget sit et quisque. Semper commodo viverra donec magna egestas nibh. Condimentum pellentesque auctor ornare at at tellus nunc cras eu. Velit dignissim penatibus faucibus tempus. Arcu pharetra morbi bibendum et dolor volutpat amet. Sed mauris amet mi sed purus vitae odio. Mi eu lectus suscipit sagittis, ultrices ut dui.' }}</p>
     <ul class="mt-4">
         <li class="fw-bold">Posuere sed pulvinar enim faucibus justo, cursus.</li>
         <li class="fw-bold">In diam facilisis sit at convallis blandit blandit in.</li>
