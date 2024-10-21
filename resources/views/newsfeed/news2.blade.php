@@ -24,7 +24,7 @@
 </section>
 
 <section class="image-section container text-center">
-    <img src="{{asset('assets/new2-image.png')}}" class="img-fluid rounded" alt="Cleanliness Program Image">
+    <img src="{{ $topnews->image ? asset('uploads/news/' . $topnews->image) : asset('assets/new2-image.png')}}" class="img-fluid rounded" alt="Cleanliness Program Image">
 </section>
 
 <section class="section container py-5 col-md-7">
