@@ -35,6 +35,12 @@ class ProjectMemObserver
     public function deleted(Volunteer $volunteer): void
     {
         //
+        $project = Project::find($volunteer->project_id);
+
+        if($project)
+        {
+            $project->decrement('people_joined');
+        }
     }
 
     /**

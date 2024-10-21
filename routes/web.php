@@ -40,13 +40,9 @@ Route::get('/', function () {
     return redirect()->route('home.index');
 });
 
-Route::get('/contact', function () {
-    return view('contact.index');
-})->name('contact');
+Route::view('/contact','contact.index')->name('contact');
 
-Route::get('/login-page', function(){
-    return view('auth.login');
-})->name('pageLogin');
+Route::view('/login-page','auth.login')->name('pageLogin');
 
 Route::controller(AdminLoginController::class)
     ->group(function(){
@@ -113,7 +109,7 @@ Route::middleware(['checkAdminLogin'])
         Route::get('','index')->name('index');
         Route::get('/data','getData')->name('getData');
         Route::get('/create','create')->name('create');
-        Route::post('/store','store')->name('store');
+        Route::options('/store','store')->name('store')->header('Allow','POST');
         Route::get('/show/{id}','show')->name('show');
         Route::post('/{id}/update','update')->name('update');
         Route::delete('{id}','destroy')->name('delete');
