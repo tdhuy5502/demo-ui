@@ -33,7 +33,7 @@
                     <a href="{{ route('about-us.index') }}" class="btn btn-success">Learn More</a>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{asset('assets/BG.png')}}" class="img-fluid" alt="Hero Image">
+                  <img src="{{ isset($homeContent['about-us-index-img']) ? asset('uploads/home-content/' . $homeContent['about-us-index-img']) : asset('assets/BG.png') }}" class="img-fluid" alt="Hero Image">
                 </div>
             </div>
         </div>
